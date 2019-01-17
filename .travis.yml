@@ -8,7 +8,7 @@ install: npm install
 before_script: greenkeeper-lockfile-update
 script: 
   - npm run test
-  - npm run test:coverage
+  - npm run test:coveralls
   - npm run build
 after_script: greenkeeper-lockfile-upload
 deploy:

@@ -10,7 +10,7 @@
     "dev": "rollup -c -w",
     "release": "standard-version",
     "test": "jest",
-    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",

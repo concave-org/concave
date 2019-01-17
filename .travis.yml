@@ -1,11 +1,14 @@
 language: node_js
 node_js:
   - lts/*
-before_install: npm install -g greenkeeper-lockfile
+before_install:
+  - npm install -g greenkeeper-lockfile
+  - npm install -g coveralls
 install: npm install
 before_script: greenkeeper-lockfile-update
 script: 
   - npm run test
+  - npm run test:coverage
   - npm run build
 after_script: greenkeeper-lockfile-upload
 deploy:

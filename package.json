@@ -1,0 +1,41 @@
+{
+  "name": "@concave/concave",
+  "version": "0.0.1",
+  "description": "Concave is a tiny JavaScript library for building web applications.",
+  "main": "dist/concave.cjs.js",
+  "module": "dist/concave.esm.js",
+  "browser": "dist/concave.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "release": "standard-version",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/concave-org/concave.git"
+  },
+  "keywords": [
+    "concave"
+  ],
+  "author": "Mats Pfeiffer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/concave-org/concave/issues"
+  },
+  "homepage": "https://github.com/concave-org/concave#readme",
+  "devDependencies": {
+    "esm": "^3.1.0",
+    "jest": "^23.6.0",
+    "rollup": "^1.1.0",
+    "rollup-plugin-gzip": "^2.2.0",
+    "rollup-plugin-terser": "^4.0.2",
+    "standard": "^12.0.1",
+    "standard-version": "^4.4.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 {
   "name": "@concave/concave",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Concave is a tiny JavaScript library for building web applications.",
   "main": "dist/concave.cjs.js",
   "module": "dist/concave.esm.js",

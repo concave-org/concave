@@ -15,9 +15,7 @@ deploy:
     api_key: $NPM_TOKEN
     on:
       tags: true
-cache:
-  directories:
-    - node_modules
+cache: npm
 notifications:
   email:
     on_success: never

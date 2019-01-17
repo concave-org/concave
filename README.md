@@ -2,12 +2,14 @@
   <img width="150px" src="logo.png">
 </p>
 
+# Concave
+
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/concave-org/concave/blob/master/LICENSE)
-![](https://img.shields.io/npm/v/@concave/concave.svg)
+[![NPM](https://img.shields.io/npm/v/@concave/concave.svg)](https://www.npmjs.com/package/@concave/concave)
 [![Build Status](https://travis-ci.org/concave-org/concave.svg?branch=master)](https://travis-ci.org/concave-org/concave)
 [![Greenkeeper badge](https://badges.greenkeeper.io/concave-org/concave.svg)](https://greenkeeper.io/)
 
-Concave is a tiny JavaScript library for building web applications (SPAs).
+...is a tiny JavaScript library for building web applications (SPAs).
 
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
 - **Reactive** - Components will be updated & rerendered automatically by state changes.
@@ -69,40 +71,43 @@ dispatch({ type: 'COUNT', value: 3 })
 ```
 
 ### Pipeline
+
 > TODO
 
 ### HTML
+
 > TODO
 
 ### Component
+
 > TODO
 
 ### Store
+
 > TODO
 
 ### Router
+
 > TODO
 
 ### Render
+
 > TODO
 
 ## Restrictions
 
 To keep the library as simple and small as possible there are the following restrictions:
 
-* Component templates must have exactly one root .
-* No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly rerendered.
-* Browser have to support promises & async/await syntax.
-* Your hoster must be able to redirect path calls (SPA routing).
+- Component templates must have exactly one root .
+- No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly rerendered.
+- Browser have to support promises & async/await syntax.
+- Your hoster must be able to redirect path calls (SPA routing).
 
 ## Roadmap
 
-* Optional style inlining package (@concave/inline-style)
+- Optional style inlining package (@concave/inline-style)
 
-
----
-
-### Example
+## Example
 
 ```javascript
 import {

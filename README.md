@@ -1,4 +1,10 @@
-# Concave [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![Build Status](https://travis-ci.org/concave-org/concave.svg?branch=master)](https://travis-ci.org/concave-org/concave)
+<p align="center">
+  <img width="150px" src="logo.png">
+</p>
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) 
+[![Build Status](https://travis-ci.org/concave-org/concave.svg?branch=master)](https://travis-ci.org/concave-org/concave)
+
 
 Concave is a tiny JavaScript library for building web applications (SPAs).
 
@@ -16,9 +22,9 @@ It's simple: You create straight forward pipelines of components and concave wil
 
 The concave package on NPM provides CommonJS, UMD or ESM modules:
 
-* dist/concave.cjs.js
-* dist/concave.umd.js
-* dist/concave.esm.js
+- dist/concave.cjs.js
+- dist/concave.umd.js
+- dist/concave.esm.js
 
 ```shell
 npm i @concave/concave
@@ -38,8 +44,8 @@ Through all of these functions actions will be passed to control your applicatio
 
 These simple concepts result in:
 
-* Unidirectional action flow --> time traveling & easy debugging
-* Pure components --> predictive rendering results
+- Unidirectional action flow >> time traveling & easy debugging
+- Pure components >> predictive rendering results
 
 ## Documentation
 
@@ -62,16 +68,22 @@ dispatch({ type: 'COUNT', value: 3 })
 ```
 
 ### Pipeline
+> TODO
 
 ### HTML
+> TODO
 
 ### Component
+> TODO
 
 ### Store
+> TODO
 
 ### Router
+> TODO
 
 ### Render
+> TODO
 
 ## Restrictions
 

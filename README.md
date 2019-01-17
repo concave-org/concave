@@ -4,6 +4,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) 
 [![Build Status](https://travis-ci.org/concave-org/concave.svg?branch=master)](https://travis-ci.org/concave-org/concave)
+[![Coverage Status](https://coveralls.io/repos/github/concave-org/concave/badge.svg?branch=master)](https://coveralls.io/github/concave-org/concave?branch=master)
 
 
 Concave is a tiny JavaScript library for building web applications (SPAs).

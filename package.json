@@ -10,7 +10,7 @@
     "dev": "rollup -c -w",
     "release": "standard-version",
     "test": "jest",
-    "test:coveralls": "NODE_ENV=test jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/concave-org/concave#readme",
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "esm": "^3.1.0",
     "jest": "^23.6.0",
     "rollup": "^1.1.0",

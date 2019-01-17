@@ -10,7 +10,7 @@
     "dev": "rollup -c -w",
     "release": "standard-version",
     "test": "jest",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test:coveralls": "jest --coverage | coveralls"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,12 @@
   "standard": {
     "env": [
       "jest"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**",
+      "!**/node_modules/**"
     ]
   }
 }

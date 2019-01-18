@@ -17,7 +17,7 @@
 - **Batteries included** - State management & routing is builtin without any dependencies.
 - **Agnostic** - Store, router and rendering can be exchanged with a custom implementation.
 
-> Spreading pipelines of components to your browser like a concave lense will spread light rays that hit it straight.
+> Spreading pipelines of components to your browser like a concave lense will spread light rays.
 
 ## Why another library
 

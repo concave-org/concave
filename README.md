@@ -13,7 +13,7 @@
 
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
 - **Reactive** - Components will be updated & rerendered automatically by state changes.
-- **Minimal** - <1KB minimized & gzipped dependency free ESM module.
+- **Minimal** - <1KiB minimized & gzipped dependency free ESM module.
 - **Batteries included** - State management & routing is builtin without any dependencies.
 - **Agnostic** - Store, router and rendering can be exchanged with a custom implementation.
 
@@ -49,6 +49,7 @@ These simple concepts result in:
 
 - Unidirectional action flow >> time traveling & easy debugging
 - Pure components >> predictive rendering results
+- Single source of truth store >> only a state reducer can modify the state
 
 ## Documentation
 
@@ -147,13 +148,31 @@ const corePipe = createPipeline(appStore, appRouter, appRender)
 To actually run a pipeline you have to use `runPipeline(corePipe)(initialState)` - this will start your application:
 
 ```javascript
-const initialState = { text: 'Hello World!' }
+const initialState = { 
+  text: 'Hello World!',
+  counter: 0
+}
+
 runPipeline(corePipe)(initialState)
 ```
 
 ### Store
 
-> TODO
+The builtin state management is a single source of truth store which holds just a plain JavaScript object as global state. When the pipeline runs for the first time the initial state will override the stores state. Modifications of the state can only be done with a state reducer. A store can be created with `createStore((state, action, dispatch) => action)`:
+
+```javascript
+const appStore = createStore(
+    (state, action, dispatch) => {
+      switch (action.type) {
+        // state reducer
+        case 'COUNT':
+          dispatch({ type: aState, value: { ...state, counter: state.counter + 1 } })
+          break
+      }
+      return action
+    }
+)
+```
 
 ### Router
 

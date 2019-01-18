@@ -17,9 +17,11 @@
 - **Batteries included** - State management & routing is builtin without any dependencies.
 - **Agnostic** - Store, router and rendering can be exchanged with a custom implementation.
 
-## Why "concave"
+> Spreading pipelines of components to your browser like a concave lense will spread light rays that hit it straight.
 
-It's simple: You create straight forward pipelines of components and concave will spread them in your browser - like a concave lense will spread light rays that hit it straight.
+## Why another library
+
+> TODO
 
 ## Package
 
@@ -205,7 +207,18 @@ const routeNewAction = {
 
 ### Render
 
-> TODO
+To render your components at a specific mountpoint you have to create a render pipeline function with `createRenderer(mountpoint)`:
+
+```javascript
+const mountpoint = document.getElementById('app')
+const appRender = createRenderer(mountpoint)
+```
+
+All components of your defined route pipelines will now be rendered at the DOM node with the ID `app`, so you must have to define this in your `index.html` or whatever structure you have:
+
+```html
+<div id="app"/>
+```
 
 ## Restrictions
 
@@ -219,6 +232,8 @@ To keep the library as simple and small as possible there are the following rest
 ## Roadmap
 
 - Optional style inlining package (@concave/inline-style)
+
+---
 
 ## Example
 

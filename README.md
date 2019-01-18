@@ -37,11 +37,11 @@ yarn add @concave/concave
 
 ## Concepts
 
-Concave is implemented in a functional style vanilla JavaScript.
+Concave is implemented in a functional style with vanilla JavaScript.
 
 The main concept consits of a pipeline of functions which will be controlled with actions.
-There are the following predefined factory function which will return ready to use pipeline functions: `createStore`, `createRouter` & `createRenderer`. These can be used on a pipeline you will create with `createPipeline` and run with `runPipeline`.
-Components are also just functions and be created with `createComponent`.
+There are the following predefined factory functions which will return ready to use pipeline functions: `createStore`, `createRouter` & `createRenderer`. These can be used on a pipeline you will create with `createPipeline` and run with `runPipeline`.
+Components are also just functions and will be created with `createComponent`.
 
 Through all of these functions actions will be passed to control your application. E.g. the `aState` action - when a component receive this action, it will check if it need to update and will trigger a render action on the pipeline if neccessary.
 

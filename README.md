@@ -130,7 +130,26 @@ Passing an object means dispatching an action that is defined with the object.
 
 ### Pipeline
 
-> TODO
+The pipeline is the heart of concave. Through pipeline functions actions will flow to manage the state, routing and rendering. To create a pipeline you have to use the factory function `createPipeline(...pipelineFns)`:
+
+```javascript
+const helloPipe = createPipeline(component)
+```
+
+For each route of your SPA you have create such a component pipeline that will be used after a route change. Please see the Router section to know how to define routes with component pipelines.
+
+For managing the core of your app you have to define a base or core pipeline:
+
+```javascript
+const corePipe = createPipeline(appStore, appRouter, appRender)
+```
+
+To actually run a pipeline you have to use `runPipeline(corePipe)(initialState)` - this will start your application:
+
+```javascript
+const initialState = { text: 'Hello World!' }
+runPipeline(corePipe)(initialState)
+```
 
 ### Store
 

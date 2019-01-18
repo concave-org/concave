@@ -17,7 +17,7 @@
 - **Batteries included** - State management & routing is builtin without any dependencies.
 - **Agnostic** - Store, router and rendering can be exchanged with a custom implementation.
 
-## Why "concave"?
+## Why "concave"
 
 It's simple: You create straight forward pipelines of components and concave will spread them in your browser - like a concave lense will spread light rays that hit it straight.
 
@@ -54,7 +54,7 @@ These simple concepts result in:
 
 ### Actions
 
-Actions are just plain JavaScript objects
+Actions are just plain JavaScript objects which flow through your pipelines and control the application.
 
 ```javascript
 const aCount = {
@@ -70,15 +70,65 @@ dispatch(aCount)
 dispatch({ type: 'COUNT', value: 3 })
 ```
 
-### Pipeline
-
-> TODO
-
 ### HTML
 
-> TODO
+To render a component in the DOM you can define a render function with the shape `(state, props) => h(template)`:
+
+```javascript
+const renderFn = (state, props) => h
+`<div id="${props.componentID}">
+   <p>${state.text}</p>
+  </div>`
+```
+
+This is standard ES6 (template literals).
 
 ### Component
+
+To finally create a component you pass the defined render function to `createComponent(renderFn, props)`:
+
+```javascript
+const component = createComponent(renderFn, { componentID: 'hello-world' })
+```
+
+Components are first class citizens on pipelines. They will be automatically rendered on state or route changes.
+
+#### HTML events
+
+To be able to react on HTML events e.g. click you have to pass a special property `_attrs` in your props. You can pass a function or object as event handler:
+
+##### function
+
+```javascript
+const props = {
+  componentID: 'hello-world',
+  _attrs: {
+    'hello-world': {
+      onclick: event => console.log(event)
+    }
+  }
+}
+```
+
+##### object
+
+```javascript
+const props = {
+  componentID: 'hello-world',
+  _attrs: {
+    'hello-world': {
+      onclick: {
+        type: 'COUNT',
+        value: 1
+      }
+    }
+  }
+}
+```
+
+Passing an object means dispatching an action that is defined with the object.
+
+### Pipeline
 
 > TODO
 
@@ -98,7 +148,7 @@ dispatch({ type: 'COUNT', value: 3 })
 
 To keep the library as simple and small as possible there are the following restrictions:
 
-- Component templates must have exactly one root .
+- Component templates must have exactly one root.
 - No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly rerendered.
 - Browser have to support promises & async/await syntax.
 - Your hoster must be able to redirect path calls (SPA routing).

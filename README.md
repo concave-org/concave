@@ -21,7 +21,17 @@
 
 ## Why another library
 
-> TODO
+Not everyone needs a library that's bigger as the application code itself. Often I don't need all the features of React, Vue, Angular and so on for a specific app. Every library has it's dark corners where you struggle or need to find a hacky solution. I invented this project to find a solution that's fast enough for most use cases and provide a maintainable art of developing while beeing as small as possible. The story began with `ui = view(state)` and ended with a concave lense for pipelines.
+
+### Use concave
+
+- Small to medium sized applications
+- Bootstraping web applications
+- Progressive Web App (PWA)
+
+### Don't use concave
+
+- Big sized applications with a lot of components and forms
 
 ## Package
 

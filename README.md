@@ -237,6 +237,7 @@ To keep the library as simple and small as possible there are the following rest
 - Component templates must have exactly one root.
 - No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly rerendered.
 - Browser have to support promises & async/await syntax.
+- No error handling at all
 - Your hoster must be able to redirect path calls (SPA routing).
 
 ## Roadmap

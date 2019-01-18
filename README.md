@@ -137,9 +137,9 @@ The pipeline is the heart of concave. Through pipeline functions actions will fl
 const helloPipe = createPipeline(component)
 ```
 
-For each route of your SPA you have create such a component pipeline that will be used after a route change. Please see the Router section to know how to define routes with component pipelines.
+For each route of your SPA you have create such a component pipeline that will be used after a route change. Please see the [Router](#Router) section to know how to define routes with component pipelines.
 
-For managing the core of your app you have to define a base or core pipeline:
+For managing the core of your app you have to define at least one base or core pipeline:
 
 ```javascript
 const corePipe = createPipeline(appStore, appRouter, appRender)
@@ -176,7 +176,32 @@ const appStore = createStore(
 
 ### Router
 
-> TODO
+The builtin router is using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) for saving the actual state of a route in the browser. To create a router you have to use `createRoute(routes)`:
+
+```javascript
+const routes = {
+  '/': helloPipe
+}
+
+const appRouter = createRouter(routes)
+```
+
+To actually change a route from your application you have to dispatch the action `aRouteG` (action route go) with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `aRouteN` (action route new) with an object of the new routes as value:
+
+```javascript
+const routeGoAction = {
+  type: aRouteG,
+  value: '/home'
+}
+
+const routeNewAction = {
+  type: aRouteN,
+  value: {
+    '/newroute': newRoutePipe,
+    '/newerroute': newerRoutePipe
+  }
+}
+```
 
 ### Render
 

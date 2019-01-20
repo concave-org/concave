@@ -97,6 +97,7 @@ To render a component in the DOM you can define a render function with the shape
 const renderFn = (state, props) => h
 `<div id="${props.componentID}">
    <p>${state.text}</p>
+   <input id="${props.inputID}"/>
   </div>`
 ```
 
@@ -114,38 +115,22 @@ Components are first class citizens on pipelines. They will be automatically ren
 
 #### HTML events
 
-To be able to react on HTML events e.g. click you have to pass a special property `_attrs` in your props. You can pass a function or object as event handler:
-
-##### function
+To be able to react on HTML events e.g. click you have to pass a special property `_attrs` in your props. Every function you pass will be threated as dispatchable return object for a state reducer:
 
 ```javascript
 const props = {
   componentID: 'hello-world',
+  inputID: 'input',
   _attrs: {
-    'hello-world': {
-      onclick: event => console.log(event)
+    input: {
+      onchange: event => ({ type: 'INPUT', value: event.target.value }),
+      style: 'margin-left: 10px;'
     }
   }
 }
 ```
 
-##### object
-
-```javascript
-const props = {
-  componentID: 'hello-world',
-  _attrs: {
-    'hello-world': {
-      onclick: {
-        type: 'COUNT',
-        value: 1
-      }
-    }
-  }
-}
-```
-
-Passing an object means dispatching an action that is defined with the object.
+Every other type than function will be set as attribute value.
 
 ### Pipeline
 

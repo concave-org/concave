@@ -1,16 +1,13 @@
 import { ac, rc, pc } from './actions'
 
 const createRenderer = parent => {
-  // TODO: Better concept is needed here
   const setAttributes = (attrs = {}, dispatch) => {
     Object.keys(attrs).forEach(id => {
-      const el = document.getElementById(id)
+      let el = document.getElementById(id)
       Object.keys(attrs[id]).forEach(attr => {
-        const event = attr.startsWith('on') ? attr.substring(2) : null
-        if (event && typeof attrs[id][attr] === 'object') {
-          el.addEventListener(event, () => dispatch(attrs[id][attr]))
-        } else if (event && typeof attrs[id][attr] === 'function') {
-          el.addEventListener(event, attrs[id][attr])
+        let event = attr.startsWith('on') ? attr.substring(2) : null
+        if (event && typeof attrs[id][attr] === 'function') {
+          el.addEventListener(event, event => dispatch(attrs[id][attr](event)))
         } else el.setAttribute(attr, attrs[id][attr])
       })
     })

@@ -21,6 +21,7 @@
 
 ## Links
 
+- [Changelog](CHANGELOG.md)
 - [Examples](https://github.com/concave-org/examples)
 - [Documentation](#Documentation)
 - [Roadmap](#Roadmap)

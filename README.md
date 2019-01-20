@@ -248,7 +248,7 @@ import {
   createRenderer,
   createPipeline,
   aState
-} from 'concave'
+} from '@concave/concave'
 
 const hello = createComponent((state, props) =>
   h`

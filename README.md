@@ -83,11 +83,11 @@ const aCount = {
 }
 ```
 
-and can be dispatched, when the function is available
+and can be dispatched with `dispatch([array of objects])`, when the function is available:
 
 ```javascript
 dispatch(aCount)
-dispatch({ type: 'COUNT', value: 3 })
+dispatch({ type: 'COUNT', value: 3 }, { type: 'INPUT', value: 'some text' })
 ```
 
 ### HTML

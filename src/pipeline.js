@@ -8,11 +8,9 @@ const runPipeline = pipeline => state => {
   const corePipeline = pipeline
   let actualPipeline = pipeline
 
-  const dispatch = (...actions) => {
-    actions.forEach(action => {
-      if (callback) callback()
-      queue.push(action)
-    })
+  const dispatch = action => {
+    if (callback) callback()
+    queue.push(action)
   }
 
   (async function () {

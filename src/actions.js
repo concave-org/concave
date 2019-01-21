@@ -12,6 +12,8 @@ const rb = 5
 const ac = 6
 // replaceComponent
 const rc = 7
+// setAttributes
+const sa = 8
 
 export {
   aState,
@@ -20,5 +22,6 @@ export {
   pc,
   rb,
   ac,
-  rc
+  rc,
+  sa
 }

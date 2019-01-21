@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/concave-org/concave/compare/v0.2.0...v0.2.1) (2019-01-21)
+
+
+### Bug Fixes
+
+* **pipeline:** Queue multiple actions one after another. ([a3e6e94](https://github.com/concave-org/concave/commit/a3e6e94))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/concave-org/concave/compare/v0.1.1...v0.2.0) (2019-01-21)
 

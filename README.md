@@ -116,7 +116,8 @@ Components are first class citizens on pipelines. They will be automatically ren
 
 #### HTML events
 
-To be able to react on HTML events e.g. click you have to pass a special property `_attrs` in your props. Every function you pass will be threated as dispatchable return object for a state reducer:
+To be able to react on HTML events e.g. click you have to pass a special property `_attrs` in your props.
+If your passed function returns an object, concave will dispatch this as an action on the pipeline:
 
 ```javascript
 const props = {
@@ -125,13 +126,14 @@ const props = {
   _attrs: {
     input: {
       onchange: event => ({ type: 'INPUT', value: event.target.value }),
+      onclick: () => console.log('clicked'),
       style: 'margin-left: 10px;'
     }
   }
 }
 ```
 
-Every other type than function will be set as attribute value.
+To use the action to modify the state you have to implement a state reducer - see [Store](#Store). Every other type than function will be set as attribute value.
 
 ### Pipeline
 

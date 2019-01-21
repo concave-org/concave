@@ -7,7 +7,10 @@ const createRenderer = parent => {
       Object.keys(attrs[id]).forEach(attr => {
         let event = attr.startsWith('on') ? attr.substring(2) : null
         if (event && typeof attrs[id][attr] === 'function') {
-          el.addEventListener(event, event => dispatch(attrs[id][attr](event)))
+          el.addEventListener(event, event => {
+            let result = attrs[id][attr](event)
+            if (typeof result === 'object') dispatch(result)
+          })
         } else el.setAttribute(attr, attrs[id][attr])
       })
     })

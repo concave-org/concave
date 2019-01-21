@@ -157,13 +157,32 @@ const corePipe = createPipeline(appStore, appRouter, appRender)
 To actually run a pipeline you have to use `runPipeline(corePipe)(initialState)` - this will start your application:
 
 ```javascript
-const initialState = { 
+const initialState = {
   text: 'Hello World!',
   counter: 0
 }
 
 runPipeline(corePipe)(initialState)
 ```
+
+#### Custom pipeline functions
+
+If you need to react on your defined and dispatched actions you can implement your own custom pipeline functions to do something with these actions:
+
+```javascript
+const custom = (action, dispatch) => {
+  switch (action.type) {
+    case 'FOCUS':
+      // do something with action.value
+      break
+  }
+  return action
+}
+
+const corePipe = createPipeline(appStore, appRouter, appRender, custom)
+```
+
+It's important that your function return the original action at the end, otherwise no trailing pipeline function will receive that action. Custom functions are an better approach to decouple your application logic and state.
 
 ### Store
 

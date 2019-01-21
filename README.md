@@ -184,6 +184,15 @@ const corePipe = createPipeline(appStore, appRouter, appRender, custom)
 
 It's important that your function return the original action at the end, otherwise no trailing pipeline function will receive that action. Custom functions are an better approach to decouple your application logic and state.
 
+```javascript
+const logger = (action, dispatch) => {
+  console.log(action)
+  return action
+}
+
+const corePipe = createPipeline(logger, appStore, appRouter, appRender)
+```
+
 ### Store
 
 The builtin state management is a single source of truth store which holds just a plain JavaScript object as global state. When the pipeline runs for the first time the initial state will override the stores state. Modifications of the state can only be done with a state reducer. A store can be created with `createStore((state, action, dispatch) => action)`:

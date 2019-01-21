@@ -9,7 +9,7 @@ const createRenderer = parent => {
         if (event && typeof attrs[id][attr] === 'function') {
           el.addEventListener(event, event => {
             let result = attrs[id][attr](event)
-            if (typeof result === 'object') dispatch(result)
+            if (Array.isArray(result)) dispatch(...result)
           })
         } else el.setAttribute(attr, attrs[id][attr])
       })

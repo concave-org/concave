@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/concave-org/concave/compare/v0.2.1...v0.3.0) (2019-01-22)
+
+
+### Features
+
+* **render:** Re-focus textfields after rendering. ([7b8c256](https://github.com/concave-org/concave/commit/7b8c256))
+
+
+### Reverts
+
+* Disable multiple action dispatching. ([88a98f6](https://github.com/concave-org/concave/commit/88a98f6))
+
+
+### BREAKING CHANGES
+
+* Event handler functions should return an object to dispatch an action.
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/concave-org/concave/compare/v0.2.0...v0.2.1) (2019-01-21)
 

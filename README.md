@@ -38,7 +38,7 @@ Not everyone needs a library that's bigger as the application code itself. Often
 
 ### Don't use concave
 
-- Big sized applications with a lot of components and forms
+- Big sized applications with a lot of components and forms (rerendering will not be performant?)
 
 ## Package
 

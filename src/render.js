@@ -7,14 +7,22 @@ const createRenderer = parent => {
         parent.appendChild(action.value.el)
         break
       case rc:
+        // get actual focused element
+        let { id, selectionStart, selectionEnd } = document.activeElement
         parent.replaceChild(action.value.el, action.value.prevEl)
+        // set focus on text & textarea
+        let el = parent.querySelector(`#${id}`)
+        if (el && (el.type === 'text' || el.type === 'textarea')) {
+          el.focus()
+          el.setSelectionRange(selectionStart, selectionEnd)
+        }
         break
       case pc:
         while (parent.firstChild) parent.removeChild(parent.firstChild)
         break
       case sa:
         Object.keys(action.value).forEach(id => {
-          let el = document.getElementById(id)
+          let el = parent.querySelector(`#${id}`)
           Object.keys(action.value[id]).forEach(attr => {
             let event = attr.startsWith('on') ? attr.substring(2) : null
             if (event && typeof action.value[id][attr] === 'function') {

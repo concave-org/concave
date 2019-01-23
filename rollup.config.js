@@ -1,6 +1,5 @@
 import pkg from './package.json'
-import { terser } from 'rollup-plugin-terser'
-import gzipPlugin from 'rollup-plugin-gzip'
+import filesize from 'rollup-plugin-filesize'
 
 export default [
   {
@@ -11,8 +10,7 @@ export default [
       { file: pkg.module, format: 'esm' }
     ],
     plugins: [
-      terser(),
-      gzipPlugin()
+      filesize()
     ]
   }
 ]

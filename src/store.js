@@ -13,7 +13,7 @@ const createStore = stateReducer => {
         break
       case pc:
         if (action.value.state) state = action.value.state
-        if (action.value.props) state._props = action.value.props
+        state._props = action.value.props
         dispatch({ type: aState, value: state })
         break
       case aRouteG:

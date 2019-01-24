@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/concave-org/concave/compare/v0.3.1...v0.3.2) (2019-01-24)
+
+
+### Bug Fixes
+
+* **store:** Save router props in state. ([481fbbc](https://github.com/concave-org/concave/commit/481fbbc))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/concave-org/concave/compare/v0.3.0...v0.3.1) (2019-01-23)
 

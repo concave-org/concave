@@ -237,6 +237,8 @@ const routeNewAction = {
 }
 ```
 
+The router params will be saved on the global state object as `_props`, so you are able to access them in your components.
+
 ### Render
 
 To render your components at a specific mountpoint you have to create a render pipeline function with `createRenderer(mountpoint)`:

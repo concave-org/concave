@@ -237,7 +237,18 @@ const routeNewAction = {
 }
 ```
 
-The router params will be saved on the global state object as `_props`, so you are able to access them in your components.
+The routea and it's params will be saved on the global state object as `_route`, so you are able to access them in your components.
+
+`/test?id=1`
+
+```javascript
+_route: {
+  path: 'test',
+  props: {
+    id: '1'
+  }
+}
+```
 
 ### Render
 

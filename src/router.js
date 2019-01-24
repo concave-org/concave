@@ -15,7 +15,14 @@ const createRouter = initialRoutes => {
 
     if (routes[pathname]) {
       currentRoute = pathname
-      dispatch({ type: pc, value: { pipe: routes[pathname], props: params, state: state } })
+      dispatch({
+        type: pc,
+        value: {
+          pipe: routes[pathname],
+          route: { path: pathname, props: params },
+          state: state
+        }
+      })
     }
   }
 

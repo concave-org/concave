@@ -10,12 +10,11 @@ const createRenderer = parent => {
         // get actual focused element
         let { id, selectionStart, selectionEnd } = document.activeElement
         parent.replaceChild(action.value.el, action.value.prevEl)
-        // set focus on text & textarea
+        // set focus on elements with value prop
         let el = parent.querySelector(`#${id}`)
-        if (el && (el.type === 'text' || el.type === 'textarea')) {
-          el.focus()
-          el.setSelectionRange(selectionStart, selectionEnd)
-        }
+        if (el.value) el.focus()
+        // set selection if set before
+        if (selectionStart && selectionEnd) el.setSelectionRange(selectionStart, selectionEnd)
         break
       case pc:
         while (parent.firstChild) parent.removeChild(parent.firstChild)

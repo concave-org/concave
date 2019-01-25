@@ -96,13 +96,29 @@ To render a component in the DOM you can define a render function with the shape
 
 ```javascript
 const renderFn = (state, props) => h
-`<div id="${props.componentID}">
-   <p>${state.text}</p>
-   <input id="${props.inputID}"/>
-  </div>`
+  `<div id="${props.componentID}">
+     <p>${state.text}</p>
+     <input id="${props.inputID}"/>
+   </div>
+  `
 ```
 
 This is standard ES6 (template literals).
+
+#### Composition
+
+To create a nested tree you can compose the `h` function:
+
+```javascript
+const renderSub = (state, props) => h`<p>I'am sub with text: ${state.text}</p>`
+
+const renderFn = (state, props) => h
+  `<div id="${props.componentID}">
+     <p>${state.text}</p>
+     ${renderSub(state, {})}
+   </div>
+  `
+```
 
 ### Component
 

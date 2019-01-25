@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/concave-org/concave/compare/v0.4.0...v0.4.1) (2019-01-25)
+
+
+### Bug Fixes
+
+* **render:** Re-focus elements with value prop and selection-range if necessary. ([3e811bf](https://github.com/concave-org/concave/commit/3e811bf))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/concave-org/concave/compare/v0.3.2...v0.4.0) (2019-01-24)
 

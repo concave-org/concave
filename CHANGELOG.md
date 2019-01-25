@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/concave-org/concave/compare/v0.4.1...v0.5.0) (2019-01-25)
+
+
+### Bug Fixes
+
+* **render:** Re-focus when value is an empty string. ([593ea01](https://github.com/concave-org/concave/commit/593ea01))
+
+
+### Features
+
+* **html:** Enable composition of render functions. ([b46e713](https://github.com/concave-org/concave/commit/b46e713))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/concave-org/concave/compare/v0.4.0...v0.4.1) (2019-01-25)
 

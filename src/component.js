@@ -6,7 +6,10 @@ const createComponent = (renderFn, props = {}) => {
   return (action, dispatch) => {
     switch (action.type) {
       case aState:
-        let el = renderFn(action.value, props)
+        let h = renderFn(action.value, props)
+        let template = document.createElement('template')
+        template.innerHTML = h
+        let el = template.content.firstChild
         let renderAction = !prevEl ? ac : !prevEl.isEqualNode(el) ? rc : null
         if (renderAction) {
           dispatch({ type: renderAction, value: { el, prevEl, props } })

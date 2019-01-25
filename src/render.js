@@ -12,7 +12,7 @@ const createRenderer = parent => {
         parent.replaceChild(action.value.el, action.value.prevEl)
         // set focus on elements with value prop
         let el = parent.querySelector(`#${id}`)
-        if (el.value) el.focus()
+        if (el.value || el.value === '') el.focus()
         // set selection if set before
         if (selectionStart && selectionEnd) el.setSelectionRange(selectionStart, selectionEnd)
         break

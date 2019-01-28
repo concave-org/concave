@@ -14,27 +14,22 @@ const createRouter = initialRoutes => {
     }
 
     const foundFallback = routes.find(r => r.fallback)
-    // TODO: match route params
+    // TODO: match route params?
     const matchedRoutes = routes.find(r => r.path && r.path === pathname)
 
-    let pipe
     if (matchedRoutes) {
       currentRoute = pathname
-      pipe = matchedRoutes.pipe
-    } else if (foundFallback) {
-      currentRoute = foundFallback.fallback
-      document.location.href = document.location.origin + currentRoute
-      pipe = foundFallback.pipe
-    }
-    if (pipe) {
       dispatch({
         type: pc,
         value: {
-          pipe: pipe,
+          pipe: matchedRoutes.pipe,
           route: { path: pathname, props: params },
           state: state
         }
       })
+    } else if (foundFallback) {
+      currentRoute = foundFallback.fallback
+      dispatch({ type: aRouteG, value: foundFallback.fallback })
     }
   }
 

@@ -23,6 +23,7 @@ const createRouter = initialRoutes => {
       pipe = match[0].pipe
     } else if (fb) {
       currentRoute = fb.fallback
+      document.location.href = document.location.origin + currentRoute
       pipe = fb.pipe
     }
     if (pipe) {

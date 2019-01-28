@@ -231,7 +231,7 @@ The builtin router is using the [History API](https://developer.mozilla.org/en-U
 ```javascript
 const routes = [
   {
-    fallback: '/', // define a fallback route
+    fallback: '/hello?name=test', // define a fallback route
     pipe: defaultPipe
   },
   {
@@ -242,6 +242,8 @@ const routes = [
 
 const appRouter = createRouter(routes)
 ```
+
+If you define a fallback route be sure to fallback to an existing route, otherwise your app will loop.
 
 To actually change a route from your application you have to dispatch the action `aRouteG` (action route go) with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `aRouteN` (action route new) with an array of objects with the new routes:
 

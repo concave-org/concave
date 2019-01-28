@@ -13,13 +13,24 @@ const createRouter = initialRoutes => {
       params[pair[0]] = pair[1]
     }
 
-    if (routes[pathname]) {
-      currentRoute = pathname
+    const fb = routes.filter(r => r.fallback || false)
+    // TODO: match route params
+    const match = routes.filter(r => r.path && r.path === pathname)
+
+    let pipe
+    if (match.length === 1) {
+      currentRoute = match[0].path
+      pipe = match[0].pipe
+    } else if (fb) {
+      currentRoute = fb.fallback
+      pipe = fb.pipe
+    }
+    if (pipe) {
       dispatch({
         type: pc,
         value: {
-          pipe: routes[pathname],
-          route: { path: pathname, props: params },
+          pipe: pipe,
+          route: { path: currentRoute, props: params },
           state: state
         }
       })
@@ -36,7 +47,7 @@ const createRouter = initialRoutes => {
         if (!currentRoute) changePipeline(dispatch)
         break
       case aRouteN:
-        routes = { ...routes, ...action.value }
+        routes = [ ...routes, ...action.value ]
         break
       case aRouteG:
         changePipeline(dispatch)

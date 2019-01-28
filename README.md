@@ -229,14 +229,21 @@ const appStore = createStore(
 The builtin router is using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) for saving the actual state of a route in the browser. To create a router you have to use `createRoute(routes)`:
 
 ```javascript
-const routes = {
-  '/': helloPipe
-}
+const routes = [
+  {
+    fallback: '/', // define a fallback route
+    pipe: defaultPipe
+  },
+  {
+    path: '/',
+    pipe: helloPi
+  }
+]
 
 const appRouter = createRouter(routes)
 ```
 
-To actually change a route from your application you have to dispatch the action `aRouteG` (action route go) with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `aRouteN` (action route new) with an object of the new routes as value:
+To actually change a route from your application you have to dispatch the action `aRouteG` (action route go) with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `aRouteN` (action route new) with an array of objects with the new routes:
 
 ```javascript
 const routeGoAction = {
@@ -246,10 +253,10 @@ const routeGoAction = {
 
 const routeNewAction = {
   type: aRouteN,
-  value: {
-    '/newroute': newRoutePipe,
-    '/newerroute': newerRoutePipe
-  }
+  value: [
+    { path: '/newroute', pipe: newRoutePipe },
+    { path: '/newerroute', pipe: newerRoutePipe }
+  ]
 }
 ```
 

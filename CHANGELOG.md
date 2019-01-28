@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/concave-org/concave/compare/v0.5.0...v0.6.0) (2019-01-28)
+
+
+### Bug Fixes
+
+* **render:** Only add event listener when element exists. ([3a8fbbd](https://github.com/concave-org/concave/commit/3a8fbbd))
+
+
+### Features
+
+* **router:** Consider fallback route. ([e162eb9](https://github.com/concave-org/concave/commit/e162eb9))
+
+
+### BREAKING CHANGES
+
+* **router:** Routes must be now passed as an array instead as object. Please see the README for an example!
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/concave-org/concave/compare/v0.4.1...v0.5.0) (2019-01-25)
 

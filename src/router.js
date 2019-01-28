@@ -19,7 +19,7 @@ const createRouter = initialRoutes => {
 
     let pipe
     if (matchedRoutes.length === 1) {
-      currentRoute = matchedRoutes[0].path
+      currentRoute = pathname
       pipe = matchedRoutes[0].pipe
     } else if (foundFallback) {
       currentRoute = foundFallback.fallback
@@ -31,7 +31,7 @@ const createRouter = initialRoutes => {
         type: pc,
         value: {
           pipe: pipe,
-          route: { path: currentRoute, props: params },
+          route: { path: pathname, props: params },
           state: state
         }
       })

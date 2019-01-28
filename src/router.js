@@ -15,12 +15,12 @@ const createRouter = initialRoutes => {
 
     const foundFallback = routes.find(r => r.fallback)
     // TODO: match route params
-    const matchedRoutes = routes.filter(r => r.path && r.path === pathname)
+    const matchedRoutes = routes.find(r => r.path && r.path === pathname)
 
     let pipe
-    if (matchedRoutes.length === 1) {
+    if (matchedRoutes) {
       currentRoute = pathname
-      pipe = matchedRoutes[0].pipe
+      pipe = matchedRoutes.pipe
     } else if (foundFallback) {
       currentRoute = foundFallback.fallback
       document.location.href = document.location.origin + currentRoute

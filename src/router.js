@@ -13,18 +13,18 @@ const createRouter = initialRoutes => {
       params[pair[0]] = pair[1]
     }
 
-    const fb = routes.filter(r => r.fallback || false)
+    const foundFallback = routes.find(r => r.fallback)
     // TODO: match route params
-    const match = routes.filter(r => r.path && r.path === pathname)
+    const matchedRoutes = routes.filter(r => r.path && r.path === pathname)
 
     let pipe
-    if (match.length === 1) {
-      currentRoute = match[0].path
-      pipe = match[0].pipe
-    } else if (fb) {
-      currentRoute = fb.fallback
+    if (matchedRoutes.length === 1) {
+      currentRoute = matchedRoutes[0].path
+      pipe = matchedRoutes[0].pipe
+    } else if (foundFallback) {
+      currentRoute = foundFallback.fallback
       document.location.href = document.location.origin + currentRoute
-      pipe = fb.pipe
+      pipe = foundFallback.pipe
     }
     if (pipe) {
       dispatch({

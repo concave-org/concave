@@ -235,8 +235,8 @@ const routes = [
     pipe: defaultPipe
   },
   {
-    path: '/',
-    pipe: helloPi
+    path: '/hello',
+    pipe: helloPipe
   }
 ]
 
@@ -260,7 +260,7 @@ const routeNewAction = {
 }
 ```
 
-The routea and it's params will be saved on the global state object as `_route`, so you are able to access them in your components.
+The rout and it's params will be saved on the global state object as `_route`, so you are able to access them in your components.
 
 `/test?id=1`
 

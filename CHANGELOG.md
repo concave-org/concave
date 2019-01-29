@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/concave-org/concave/compare/v0.7.0...v0.7.1) (2019-01-29)
+
+
+### Bug Fixes
+
+* **render:** Use different element gathering method. ([574c4b1](https://github.com/concave-org/concave/commit/574c4b1))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/concave-org/concave/compare/v0.6.4...v0.7.0) (2019-01-29)
 

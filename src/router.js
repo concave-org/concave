@@ -23,7 +23,7 @@ const createRouter = initialRoutes => {
         type: pc,
         value: {
           pipe: matchedRoutes.pipe,
-          route: { path: pathname, props: params },
+          route: { path: pathname, params },
           state: state
         }
       })

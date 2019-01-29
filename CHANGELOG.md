@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/concave-org/concave/compare/v0.6.4...v0.7.0) (2019-01-29)
+
+
+### Bug Fixes
+
+* **router:** Prevent fallback routing loop. ([c9c53a5](https://github.com/concave-org/concave/commit/c9c53a5))
+
+
+### Code Refactoring
+
+* **router:** Rename router props to params. ([988e621](https://github.com/concave-org/concave/commit/988e621))
+
+
+### BREAKING CHANGES
+
+* **router:** Please access route params at state._route.params instead of state._route.props.
+
+
+
 <a name="0.6.4"></a>
 ## [0.6.4](https://github.com/concave-org/concave/compare/v0.6.3...v0.6.4) (2019-01-28)
 

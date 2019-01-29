@@ -299,6 +299,7 @@ To keep the library as simple and small as possible there are the following rest
 - Browser have to support promises & async/await syntax.
 - No error handling at all
 - Your hoster must be able to redirect path calls (SPA routing).
+- IE11 is not supported
 
 ## Roadmap
 

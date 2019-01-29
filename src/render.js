@@ -11,7 +11,7 @@ const createRenderer = parent => {
         let { id, selectionStart, selectionEnd } = document.activeElement
         parent.replaceChild(action.value.el, action.value.prevEl)
         // set focus on elements with value prop
-        let el = parent.querySelector(`#${id}`)
+        let el = document.getElementById(id)
         if (el.value || el.value === '') el.focus()
         // set selection if set before
         if (selectionStart && selectionEnd) el.setSelectionRange(selectionStart, selectionEnd)
@@ -21,7 +21,7 @@ const createRenderer = parent => {
         break
       case sa:
         Object.keys(action.value).forEach(id => {
-          let el = parent.querySelector(`#${id}`)
+          let el = document.getElementById(id)
           // only add event listener when element exists
           if (el) {
             Object.keys(action.value[id]).forEach(attr => {

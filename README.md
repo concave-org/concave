@@ -231,8 +231,7 @@ The builtin router is using the [History API](https://developer.mozilla.org/en-U
 ```javascript
 const routes = [
   {
-    fallback: '/hello?name=test', // define a fallback route
-    pipe: defaultPipe
+    fallback: '/hello?name=test' // define a fallback route
   },
   {
     path: '/hello',

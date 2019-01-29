@@ -243,8 +243,6 @@ const routes = [
 const appRouter = createRouter(routes)
 ```
 
-If you define a fallback route be sure to fallback to an existing route, otherwise your app will loop.
-
 To actually change a route from your application you have to dispatch the action `aRouteG` (action route go) with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `aRouteN` (action route new) with an array of objects with the new routes:
 
 ```javascript
@@ -262,14 +260,14 @@ const routeNewAction = {
 }
 ```
 
-The rout and it's params will be saved on the global state object as `_route`, so you are able to access them in your components.
+The route and it's params will be saved on the global state object as `_route`, so you are able to access them in your components with `state._route.params`:
 
 `/test?id=1`
 
 ```javascript
 _route: {
   path: 'test',
-  props: {
+  params: {
     id: '1'
   }
 }

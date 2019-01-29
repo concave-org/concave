@@ -27,7 +27,8 @@ const createRouter = initialRoutes => {
           state: state
         }
       })
-    } else if (foundFallback) {
+    // only dispatch route change if not already on fallback route
+    } else if (foundFallback && currentRoute !== foundFallback.fallback) {
       currentRoute = foundFallback.fallback
       dispatch({ type: aRouteG, value: foundFallback.fallback })
     }

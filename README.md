@@ -15,7 +15,6 @@
 - **Reactive** - Components will be updated & rerendered automatically by state changes.
 - **Minimal** - 1KiB minimized & gzipped dependency free ESM module.
 - **Batteries included** - State management & routing is builtin without any dependencies.
-- **Agnostic** - Store, router and rendering can be exchanged with a custom implementation.
 
 > Spreading pipelines of components to your browser like a concave lense will spread light rays.
 

@@ -30,7 +30,7 @@ const createRenderer = parent => {
                 el.addEventListener(event, event => {
                   let result = action.value[id][attr](event)
                   if (typeof result === 'object') dispatch(result)
-                })
+                }, { passive: true })
               } else el.setAttribute(attr, action.value[id][attr])
             })
           }

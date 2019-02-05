@@ -1,4 +1,4 @@
-import { aState, aRouteN, aRouteG, rb, pc } from './actions'
+import actions from './actions'
 
 const createRouter = initialRoutes => {
   let currentRoute
@@ -20,7 +20,7 @@ const createRouter = initialRoutes => {
     if (matchedRoutes) {
       currentRoute = pathname
       dispatch({
-        type: pc,
+        type: actions.pipelineChange,
         value: {
           pipe: matchedRoutes.pipe,
           route: { path: pathname, params },
@@ -30,26 +30,26 @@ const createRouter = initialRoutes => {
     // only dispatch route change if not already on fallback route
     } else if (foundFallback && currentRoute !== foundFallback.fallback) {
       currentRoute = foundFallback.fallback
-      dispatch({ type: aRouteG, value: foundFallback.fallback })
+      dispatch({ type: actions.routeTo, value: foundFallback.fallback })
     }
   }
 
   return (action, dispatch) => {
     if (!currentRoute) {
-      window.addEventListener('popstate', event => dispatch({ type: rb, value: event.state }))
+      window.addEventListener('popstate', event => dispatch({ type: actions.routeBack, value: event.state }))
     }
 
     switch (action.type) {
-      case aState:
+      case actions.state:
         if (!currentRoute) changePipeline(dispatch)
         break
-      case aRouteN:
+      case actions.routeNew:
         routes = [ ...routes, ...action.value ]
         break
-      case aRouteG:
+      case actions.appendComponent:
         changePipeline(dispatch)
         break
-      case rb:
+      case actions.replaceComponent:
         changePipeline(dispatch, action.value)
         break
     }

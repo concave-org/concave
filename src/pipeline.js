@@ -1,4 +1,4 @@
-import { aState, pc } from './actions'
+import actions from './actions'
 
 const createPipeline = (...fns) => (x, dispatch) => fns.reduce((v, f) => f(v, dispatch), x)
 
@@ -17,14 +17,14 @@ const runPipeline = pipeline => state => {
     while (true) {
       while (queue.length > 0) {
         const action = queue.shift()
-        if (action.type === pc) actualPipeline = createPipeline(corePipeline, action.value.pipe)
+        if (action.type === actions.pipelineChange) actualPipeline = createPipeline(corePipeline, action.value.pipe)
         actualPipeline(action, dispatch)
       }
       await new Promise(resolve => { callback = resolve })
       callback = null
     }
   }())
-  corePipeline({ type: aState, value: state }, dispatch)
+  corePipeline({ type: actions.state, value: state }, dispatch)
 }
 
 export {

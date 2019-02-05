@@ -1,15 +1,11 @@
-import { h } from './html'
-import { aState, aRouteG, aRouteN } from './actions'
-import { createComponent } from './component'
+import actions from './actions'
 import { createPipeline, runPipeline } from './pipeline'
 import { createStore } from './store'
 import { createRouter } from './router'
 import { createRenderer } from './render'
 
 export {
-  aState,
-  aRouteG,
-  aRouteN,
+  actions,
   h,
   createComponent,
   createPipeline,

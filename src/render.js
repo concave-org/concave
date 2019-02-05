@@ -1,12 +1,12 @@
-import { ac, rc, pc, sa } from './actions'
+import actions from './actions'
 
 const createRenderer = parent => {
   return (action, dispatch) => {
     switch (action.type) {
-      case ac:
+      case actions.appendComponent:
         parent.appendChild(action.value.el)
         break
-      case rc:
+      case actions.replaceComponent:
         // get actual focused element
         let { id, selectionStart, selectionEnd } = document.activeElement
         parent.replaceChild(action.value.el, action.value.prevEl)
@@ -16,10 +16,10 @@ const createRenderer = parent => {
         // set selection if set before
         if (selectionStart && selectionEnd) el.setSelectionRange(selectionStart, selectionEnd)
         break
-      case pc:
+      case actions.pipelineChange:
         while (parent.firstChild) parent.removeChild(parent.firstChild)
         break
-      case sa:
+      case actions.setAttributes:
         Object.keys(action.value).forEach(id => {
           let el = document.getElementById(id)
           // only add event listener when element exists

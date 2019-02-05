@@ -1,6 +1,6 @@
 import actions from './actions'
 
-const createRouter = initialRoutes => {
+export default initialRoutes => {
   let currentRoute
   let routes = initialRoutes
 
@@ -55,8 +55,4 @@ const createRouter = initialRoutes => {
     }
     return action
   }
-}
-
-export {
-  createRouter
 }

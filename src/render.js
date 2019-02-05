@@ -1,6 +1,6 @@
 import actions from './actions'
 
-const createRenderer = parent => {
+export default parent => {
   return (action, dispatch) => {
     switch (action.type) {
       case actions.appendComponent:
@@ -39,8 +39,4 @@ const createRenderer = parent => {
     }
     return action
   }
-}
-
-export {
-  createRenderer
 }

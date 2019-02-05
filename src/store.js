@@ -1,6 +1,6 @@
 import actions from './actions'
 
-const createStore = stateReducer => {
+export default stateReducer => {
   let state
   let initialState
 
@@ -24,8 +24,4 @@ const createStore = stateReducer => {
     stateReducer({ ...state }, action, dispatch)
     return action
   }
-}
-
-export {
-  createStore
 }

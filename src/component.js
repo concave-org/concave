@@ -1,6 +1,6 @@
 import actions from './actions'
 
-export default (renderFn, props = {}) => {
+const createComponent = (renderFn, props = {}) => {
   let prevEl
 
   return (action, dispatch) => {
@@ -23,4 +23,8 @@ export default (renderFn, props = {}) => {
     }
     return action
   }
+}
+
+export {
+  createComponent
 }

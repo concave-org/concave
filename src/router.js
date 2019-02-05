@@ -46,10 +46,10 @@ const createRouter = initialRoutes => {
       case actions.routeNew:
         routes = [ ...routes, ...action.value ]
         break
-      case actions.appendComponent:
+      case actions.routeTo:
         changePipeline(dispatch)
         break
-      case actions.replaceComponent:
+      case actions.routeBack:
         changePipeline(dispatch, action.value)
         break
     }

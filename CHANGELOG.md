@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.1"></a>
+## [0.8.1](https://github.com/concave-org/concave/compare/v0.8.0...v0.8.1) (2019-02-05)
+
+
+### Bug Fixes
+
+* **router:** Change action type. ([8950af8](https://github.com/concave-org/concave/commit/8950af8))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/concave-org/concave/compare/v0.7.2...v0.8.0) (2019-02-05)
 

@@ -1,4 +1,4 @@
-import actions from './actions'
+import { actions } from './actions'
 
 const createPipeline = (...fns) => (x, dispatch) => fns.reduce((v, f) => f(v, dispatch), x)
 

@@ -1,4 +1,6 @@
-import actions from './actions'
+import { actions } from './actions'
+import { h } from './html'
+import { createComponent } from './component'
 import { createPipeline, runPipeline } from './pipeline'
 import { createStore } from './store'
 import { createRouter } from './router'

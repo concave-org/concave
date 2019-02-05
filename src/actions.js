@@ -1,4 +1,4 @@
-export default {
+const actions = {
   state: 'state',
   routeTo: 'routeTo',
   routeBack: 'routeBack',
@@ -7,4 +7,8 @@ export default {
   appendComponent: 'appendComponent',
   replaceComponent: 'replaceComponent',
   setAttributes: 'setAttributes'
+}
+
+export {
+  actions
 }

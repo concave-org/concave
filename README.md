@@ -57,11 +57,11 @@ yarn add @concave/concave
 
 Concave is implemented in a functional style with vanilla JavaScript.
 
-The main concept consits of a pipeline of functions which will be controlled with actions.
+The main concept consists of a pipeline of functions which will be controlled with actions.
 There are the following predefined factory functions which will return ready to use pipeline functions: `createStore`, `createRouter` & `createRenderer`. These can be used on a pipeline you will create with `createPipeline` and run with `runPipeline`.
 Components are also just functions and will be created with `createComponent`.
 
-Through all of these functions actions will be passed to control your application. E.g. the `aState` action - when a component receive this action, it will check if it need to update and will trigger a render action on the pipeline if neccessary.
+Through all of these functions actions will be passed to control your application. E.g. the `state` action - when a component receive this action, it will check if it need to update itself and will trigger a render action on the pipeline if neccessary.
 
 These simple concepts result in:
 
@@ -75,6 +75,19 @@ These simple concepts result in:
 
 Actions are just plain JavaScript objects which flow through your pipelines and control the application.
 
+All internal and external actions are published and accessible:
+
+```javascript
+import { actions } from '@concave/cocncave'
+
+// actions.state
+// actions.routeTo
+// actions.routeNew
+// ...
+```
+
+Custom actions:
+
 ```javascript
 const aCount = {
   type: 'COUNT',
@@ -82,11 +95,11 @@ const aCount = {
 }
 ```
 
-and can be dispatched with `dispatch([array of objects])`, when the function is available:
+... can be dispatched with `dispatch(object)` in pipeline functions:
 
 ```javascript
 dispatch(aCount)
-dispatch({ type: 'COUNT', value: 3 }, { type: 'INPUT', value: 'some text' })
+dispatch({ type: 'COUNT', value: 3 })
 ```
 
 ### HTML
@@ -184,7 +197,7 @@ If you need to react on your defined and dispatched actions you can implement yo
 ```javascript
 const custom = (action, dispatch) => {
   switch (action.type) {
-    case 'FOCUS':
+    case 'SOME_ACTION':
       // do something with action.value
       break
   }
@@ -241,16 +254,16 @@ const routes = [
 const appRouter = createRouter(routes)
 ```
 
-To actually change a route from your application you have to dispatch the action `aRouteG` (action route go) with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `aRouteN` (action route new) with an array of objects with the new routes:
+To actually change a route from your application you have to dispatch the action `routeTo` with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `routeNew` with an array of objects with the new routes:
 
 ```javascript
 const routeGoAction = {
-  type: aRouteG,
+  type: actions.routeTo,
   value: '/home'
 }
 
 const routeNewAction = {
-  type: aRouteN,
+  type: actions.routeNew,
   value: [
     { path: '/newroute', pipe: newRoutePipe },
     { path: '/newerroute', pipe: newerRoutePipe }
@@ -283,7 +296,7 @@ const appRender = createRenderer(mountpoint)
 All components of your defined route pipelines will now be rendered at the DOM node with the ID `app`, so you must have to define this in your `index.html` or whatever structure you have:
 
 ```html
-<div id="app"/>
+<div id="app"></div>
 ```
 
 ## Restrictions
@@ -297,10 +310,6 @@ To keep the library as simple and small as possible there are the following rest
 - Your hoster must be able to redirect path calls (SPA routing).
 - IE11 is not supported
 
-## Roadmap
-
-- Optional style inlining package (@concave/inline-style)
-
 ---
 
 ## Example
@@ -312,7 +321,7 @@ import {
   createRouter,
   createRenderer,
   createPipeline,
-  aState
+  actions
 } from '@concave/concave'
 
 const hello = createComponent((state, props) =>
@@ -329,7 +338,7 @@ const helloPipe = createPipeline(hello)
 const appStore = createStore(
     (state, action, dispatch) => {
       switch (action.type) {
-        // ...dispatch aState here with new state
+        // ...dispatch state here with new state
       }
       return action
     }

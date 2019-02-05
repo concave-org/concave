@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/concave-org/concave/compare/v0.7.2...v0.8.0) (2019-02-05)
+
+
+### Code Refactoring
+
+* **actions:** Default export object of actions. ([cef345f](https://github.com/concave-org/concave/commit/cef345f))
+
+
+### BREAKING CHANGES
+
+* **actions:** Actions are now exported as object and have longer names.
+
+
+
 <a name="0.7.2"></a>
 ## [0.7.2](https://github.com/concave-org/concave/compare/v0.7.1...v0.7.2) (2019-02-01)
 

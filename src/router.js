@@ -4,7 +4,7 @@ const createRouter = initialRoutes => {
   let currentRoute
   let routes = initialRoutes
 
-  const changePipeline = (dispatch, state) => {
+  const changePipeline = (dispatch, state = null) => {
     const { pathname, search } = document.location
 
     const params = {}
@@ -14,23 +14,26 @@ const createRouter = initialRoutes => {
     }
 
     const foundFallback = routes.find(r => r.fallback)
-    // TODO: match route params?
-    const matchedRoutes = routes.find(r => r.path && r.path === pathname)
+    const matchedRoute = routes.find(r => r.path && r.path === pathname)
 
-    if (matchedRoutes) {
-      currentRoute = pathname
-      dispatch({
-        type: actions.pipelineChange,
-        value: {
-          pipe: matchedRoutes.pipe,
-          route: { path: pathname, params },
-          state: state
-        }
-      })
-    // only dispatch route change if not already on fallback route
-    } else if (foundFallback && currentRoute !== foundFallback.fallback) {
-      currentRoute = foundFallback.fallback
-      dispatch({ type: actions.routeTo, value: foundFallback.fallback })
+    // only do anything when route differs
+    if (currentRoute !== pathname) {
+      // new route in defined routes?
+      if (matchedRoute) {
+        currentRoute = pathname
+        dispatch({
+          type: actions.pipelineChange,
+          value: {
+            pipe: matchedRoute.pipe,
+            route: { path: pathname, params },
+            state: state
+          }
+        })
+        // only dispatch route change if not already on fallback route
+      } else if (foundFallback && currentRoute !== foundFallback.fallback) {
+        currentRoute = foundFallback.fallback
+        dispatch({ type: actions.routeTo, value: foundFallback.fallback })
+      }
     }
   }
 

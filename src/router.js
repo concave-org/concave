@@ -2,6 +2,7 @@ import { actions } from './actions'
 
 const createRouter = initialRoutes => {
   let currentRoute
+  let currentParams
   let routes = initialRoutes
 
   const changePipeline = (dispatch, state = null) => {
@@ -16,11 +17,12 @@ const createRouter = initialRoutes => {
     const foundFallback = routes.find(r => r.fallback)
     const matchedRoute = routes.find(r => r.path && r.path === pathname)
 
-    // only do anything when route differs
-    if (currentRoute !== pathname) {
+    // only do anything when route or search params differ
+    if (currentRoute !== pathname || currentParams !== search) {
       // new route in defined routes?
       if (matchedRoute) {
         currentRoute = pathname
+        currentParams = search
         dispatch({
           type: actions.pipelineChange,
           value: {
@@ -32,6 +34,7 @@ const createRouter = initialRoutes => {
         // only dispatch route change if not already on fallback route
       } else if (foundFallback && currentRoute !== foundFallback.fallback) {
         currentRoute = foundFallback.fallback
+        currentParams = null
         dispatch({ type: actions.routeTo, value: foundFallback.fallback })
       }
     }

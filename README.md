@@ -104,32 +104,34 @@ dispatch({ type: 'COUNT', value: 3 })
 
 ### HTML
 
-To render a component in the DOM you can define a render function with the shape `(state, props) => h(template)`:
+To render a component in the DOM you can define a render function with the shape `(state, props) => { h: h(template), attrs: {...} }`:
 
 ```javascript
-const renderFn = (state, props) => h
-  `<div id="${props.componentID}">
-     <p>${state.text}</p>
-     <input id="${props.inputID}"/>
-   </div>
-  `
+const renderFn = (state, props) =>
+  ({ h: h
+        `<div id="${props.componentID}">
+           <p>${state.text}</p>
+           <input id="${props.inputID}"/>
+         </div>
+        `
+  })
 ```
-
-This is standard ES6 (template literals).
 
 #### Composition
 
 To create a nested tree you can compose the `h` function:
 
 ```javascript
-const renderSub = (state, props) => h`<p>I'am sub with text: ${state.text}</p>`
+const renderSub = (state, props) => ({ h: h`<p>I'am sub with text: ${state.text}</p>` })
 
-const renderFn = (state, props) => h
-  `<div id="${props.componentID}">
-     <p>${state.text}</p>
-     ${renderSub(state, {})}
-   </div>
-  `
+const renderFn = (state, props) => 
+  ({ h: h
+      `<div id="${props.componentID}">
+         <p>${state.text}</p>
+         ${renderSub(state, {})}
+       </div>
+      `
+  )}
 ```
 
 ### Component
@@ -325,11 +327,13 @@ import {
 } from '@concave/concave'
 
 const hello = createComponent((state, props) =>
-  h`
-    <div id="${props.componentID}">
-      <p>${state.text}</p>
-    </div>
-  `,
+  ({ h: h`
+        <div id="${props.componentID}">
+          <p id="dynamic">${state.text}</p>
+        </div>
+        `,
+     attrs: { dynamic: { onclick: event => console.log(event) }}
+  }),
   { componentID: 'hello-world' }
 )
 

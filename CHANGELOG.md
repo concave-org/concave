@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/concave-org/concave/compare/v0.9.3...v0.10.0) (2019-02-07)
+
+
+### Features
+
+* **component:** Set dynamic attributes that depend on the global state. ([349fb15](https://github.com/concave-org/concave/commit/349fb15))
+
+
+### BREAKING CHANGES
+
+* **component:** A render function must now return an object with `h` and `attrs` property.
+
+
+
 <a name="0.9.3"></a>
 ## [0.9.3](https://github.com/concave-org/concave/compare/v0.9.2...v0.9.3) (2019-02-07)
 

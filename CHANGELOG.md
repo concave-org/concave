@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.3"></a>
+## [0.9.3](https://github.com/concave-org/concave/compare/v0.9.2...v0.9.3) (2019-02-07)
+
+
+### Bug Fixes
+
+* **router:** Enable routing when params will change. ([be4a63d](https://github.com/concave-org/concave/commit/be4a63d))
+
+
+
 <a name="0.9.2"></a>
 ## [0.9.2](https://github.com/concave-org/concave/compare/v0.9.1...v0.9.2) (2019-02-07)
 

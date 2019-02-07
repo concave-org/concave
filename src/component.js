@@ -12,7 +12,7 @@ const createComponent = (renderFn, props = {}) => {
         let el = template.content.firstChild
         let renderAction = !prevEl ? actions.appendComponent : !prevEl.isEqualNode(el) ? actions.replaceComponent : null
         if (renderAction) {
-          dispatch({ type: renderAction, value: { el, prevEl, props } })
+          dispatch({ type: renderAction, value: { el, prevEl } })
           if (props._attrs) dispatch({ type: actions.setAttributes, value: props._attrs })
         }
         prevEl = el

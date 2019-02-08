@@ -268,19 +268,27 @@ const routeNewAction = {
   type: actions.routeNew,
   value: [
     { path: '/newroute', pipe: newRoutePipe },
-    { path: '/newerroute', pipe: newerRoutePipe }
+    { path: '/newer/:route', pipe: newerRoutePipe }
   ]
 }
 ```
 
-The route and it's params will be saved on the global state object as `_route`, so you are able to access them in your components with `state._route.params`:
+The route and it's params will be saved on the global state object as `_route`, so you are able to access them in your components with `state._route.params` and `state._route.query`:
 
-`/test?id=1`
+`/test/123?id=1`
 
 ```javascript
+
+const routes =[
+  { path: '/test/:name', pipe: testPipe }
+]
+
 _route: {
   path: 'test',
   params: {
+    name: '123'
+  },
+  query: {
     id: '1'
   }
 }

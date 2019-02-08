@@ -1,40 +1,61 @@
 import { actions } from './actions'
 
+const RESOURCE_REGEX = /([^/]+)/g
+
 const createRouter = initialRoutes => {
   let currentRoute
-  let currentParams
+  let currentQuery
   let routes = initialRoutes
+
+  // TODO: optimize code for bundle size
+  const getMatchedRoute = path => {
+    const pathRescources = path.match(RESOURCE_REGEX) || []
+
+    const preparedRoutes = routes
+      .map(r => ({ ...r, resources: r.path.match(RESOURCE_REGEX) || [] }))
+      .filter(r => r.resources.length === pathRescources.length)
+      .map(r => ({ ...r, params: r.resources.reduce((acc, cur, idx) => cur !== pathRescources[idx] ? { ...acc, [cur]: pathRescources[idx] } : acc, {}) }))
+
+    for (let route of preparedRoutes) {
+      let calcPath = pathRescources
+        .map((pr, idx) => pr === route.resources[idx] ? pr : route.resources[idx])
+        .join('/')
+      if (`/${calcPath}` === route.path) return route
+    }
+  }
 
   const changePipeline = (dispatch, state = null) => {
     const { pathname, search } = document.location
 
-    const params = {}
+    const query = {}
     const searchParams = new URLSearchParams(search)
     for (const pair of searchParams.entries()) {
-      params[pair[0]] = pair[1]
+      query[pair[0]] = pair[1]
     }
 
     const foundFallback = routes.find(r => r.fallback)
-    const matchedRoute = routes.find(r => r.path && r.path === pathname)
+    // const matchedRoute = routes.find(r => r.path && r.path === pathname)
+
+    const matchedRoute = getMatchedRoute(pathname)
 
     // only do anything when route or search params differ
-    if (currentRoute !== pathname || currentParams !== search) {
+    if (currentRoute !== pathname || currentQuery !== search) {
       // new route in defined routes?
       if (matchedRoute) {
         currentRoute = pathname
-        currentParams = search
+        currentQuery = search
         dispatch({
           type: actions.pipelineChange,
           value: {
             pipe: matchedRoute.pipe,
-            route: { path: pathname, params },
+            route: { path: pathname, params: matchedRoute.params, query },
             state: state
           }
         })
         // only dispatch route change if not already on fallback route
       } else if (foundFallback && currentRoute !== foundFallback.fallback) {
         currentRoute = foundFallback.fallback
-        currentParams = null
+        currentQuery = null
         dispatch({ type: actions.routeTo, value: foundFallback.fallback })
       }
     }

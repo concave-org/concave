@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/concave-org/concave/compare/v0.10.0...v0.11.0) (2019-02-10)
+
+
+### Bug Fixes
+
+* **router:** Dynamic routes are matched correctly if only one level deep. ([c340347](https://github.com/concave-org/concave/commit/c340347))
+
+
+### Features
+
+* **router:** Introduce dynamic routes with parameter matching. ([f625855](https://github.com/concave-org/concave/commit/f625855))
+
+
+### BREAKING CHANGES
+
+* **router:** state._route.params is renamed to state._route.query.
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/concave-org/concave/compare/v0.9.3...v0.10.0) (2019-02-07)
 

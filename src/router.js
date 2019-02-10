@@ -7,36 +7,40 @@ const createRouter = initialRoutes => {
   let currentQuery
   let routes = initialRoutes
 
-  // TODO: optimize code for bundle size
-  const getMatchedRoute = path => {
-    const pathRescources = path.match(RESOURCE_REGEX) || []
-
-    const preparedRoutes = routes
-      .map(r => ({ ...r, resources: r.path.match(RESOURCE_REGEX) || [] }))
-      .filter(r => r.resources.length === pathRescources.length)
-      .map(r => ({ ...r, params: r.resources.reduce((acc, cur, idx) => cur !== pathRescources[idx] ? { ...acc, [cur]: pathRescources[idx] } : acc, {}) }))
-
-    for (let route of preparedRoutes) {
-      let calcPath = pathRescources
-        .map((pr, idx) => pr === route.resources[idx] ? pr : route.resources[idx])
-        .join('/')
-      if (`/${calcPath}` === route.path) return route
-    }
-  }
-
-  const changePipeline = (dispatch, state = null) => {
-    const { pathname, search } = document.location
-
+  const getMatchingRoute = (path, search) => {
     const query = {}
     const searchParams = new URLSearchParams(search)
     for (const pair of searchParams.entries()) {
       query[pair[0]] = pair[1]
     }
 
-    const foundFallback = routes.find(r => r.fallback)
-    // const matchedRoute = routes.find(r => r.path && r.path === pathname)
+    const pathRescources = path.match(RESOURCE_REGEX) || []
 
-    const matchedRoute = getMatchedRoute(pathname)
+    const preparedRoutes = routes
+      .filter(r => r.path)
+      .map(r => ({ ...r, resources: r.path.match(RESOURCE_REGEX) || [] }))
+      .filter(r => r.resources.length === pathRescources.length)
+
+    for (let route of preparedRoutes) {
+      let calcPath = pathRescources
+        .map((pr, idx) => pr === route.resources[idx] ? `/${pr}` : route.resources[idx][0] === ':' ? `/${route.resources[idx]}` : '')
+        .join('')
+      if (calcPath === route.path) {
+        return {
+          ...route,
+          params: route.resources.reduce((acc, cur, idx) => cur !== pathRescources[idx] ? { ...acc, [cur.substring(1)]: pathRescources[idx] } : acc, {}),
+          query
+        }
+      }
+    }
+    return null
+  }
+
+  const changePipeline = (dispatch, state = null) => {
+    const { pathname, search } = document.location
+
+    const fallbackRoute = routes.find(r => r.fallback)
+    const matchedRoute = getMatchingRoute(pathname)
 
     // only do anything when route or search params differ
     if (currentRoute !== pathname || currentQuery !== search) {
@@ -48,15 +52,18 @@ const createRouter = initialRoutes => {
           type: actions.pipelineChange,
           value: {
             pipe: matchedRoute.pipe,
-            route: { path: pathname, params: matchedRoute.params, query },
+            route: {
+              params: matchedRoute.params,
+              query: matchedRoute.query
+            },
             state: state
           }
         })
         // only dispatch route change if not already on fallback route
-      } else if (foundFallback && currentRoute !== foundFallback.fallback) {
-        currentRoute = foundFallback.fallback
+      } else if (fallbackRoute && currentRoute !== fallbackRoute.fallback) {
+        currentRoute = fallbackRoute.fallback
         currentQuery = null
-        dispatch({ type: actions.routeTo, value: foundFallback.fallback })
+        dispatch({ type: actions.routeTo, value: fallbackRoute.fallback })
       }
     }
   }

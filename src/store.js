@@ -9,7 +9,7 @@ const createStore = stateReducer => {
       case actions.state:
         if (!initialState) initialState = action.value
         state = action.value
-        window.history.replaceState(action.value, null, document.location)
+        window.history.replaceState(action.value, null, document.location.href)
         break
       case actions.pipelineChange:
         if (action.value.state) state = action.value.state

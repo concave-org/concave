@@ -5,9 +5,8 @@
 # Concave
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/concave-org/concave/blob/master/LICENSE)
-[![NPM](https://img.shields.io/npm/v/@concave/concave.svg)](https://www.npmjs.com/package/@concave/concave)
 [![Build Status](https://travis-ci.org/concave-org/concave.svg?branch=master)](https://travis-ci.org/concave-org/concave)
-[![Greenkeeper badge](https://badges.greenkeeper.io/concave-org/concave.svg)](https://greenkeeper.io/)
+[![NPM](https://img.shields.io/npm/v/@concave/concave.svg)](https://www.npmjs.com/package/@concave/concave)
 
 ...is a tiny JavaScript library for building web applications (SPAs).
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="150px" src="logo.png">
+  <img width="150px" src="logos/logo.png">
 </p>
 
 # Concave
@@ -23,6 +23,14 @@
 - [Examples](https://github.com/concave-org/examples)
 - [Documentation](#Documentation)
 - [Roadmap](#Roadmap)
+
+## Sponsors
+
+The following sponsors help to test, build and maintain this project. Thank you very much for using your services and products to improve this project:
+
+### BrowserStack
+
+[![BrowserStack](logos/browserstack.png)](https://www.browserstack.com)
 
 ## Why another library
 

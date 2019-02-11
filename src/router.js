@@ -7,7 +7,7 @@ const createRouter = initialRoutes => {
   let currentQuery
   let routes = initialRoutes
 
-  const getMatchingRoute = (path, search) => {
+  const getRoute = (path, search) => {
     const query = {}
     const searchParams = new URLSearchParams(search)
     for (const pair of searchParams.entries()) {
@@ -40,7 +40,7 @@ const createRouter = initialRoutes => {
     const { pathname, search } = document.location
 
     const fallbackRoute = routes.find(r => r.fallback)
-    const matchedRoute = getMatchingRoute(pathname)
+    const matchedRoute = getRoute(pathname, search)
 
     // only do anything when route or search params differ
     if (currentRoute !== pathname || currentQuery !== search) {

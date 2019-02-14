@@ -3,6 +3,6 @@ const {
   createRouter
 } = req('../src/router')
 
-test('createRouter is a function', () => {
+test('module exports createRouter as a function', () => {
   expect(typeof createRouter).toEqual('function')
 })

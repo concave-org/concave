@@ -3,6 +3,6 @@ const {
   createPipeline
 } = req('../src/pipeline')
 
-test('createPipeline is a function', () => {
+test('module exports createPipeline as a function', () => {
   expect(typeof createPipeline).toEqual('function')
 })

@@ -1,6 +1,6 @@
 const req = require('esm')(module, { mode: 'auto' })
 const { h } = req('../src/html')
 
-test('h is a function', () => {
+test('module exports h as a function', () => {
   expect(typeof h).toEqual('function')
 })

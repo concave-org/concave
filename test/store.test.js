@@ -3,6 +3,6 @@ const {
   createStore
 } = req('../src/store')
 
-test('createStore is a function', () => {
+test('module exports createStore as a function', () => {
   expect(typeof createStore).toEqual('function')
 })

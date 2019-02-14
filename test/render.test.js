@@ -3,6 +3,6 @@ const {
   createRenderer
 } = req('../src/render')
 
-test('createRenderer is a function', () => {
+test('module exports createRenderer as a function', () => {
   expect(typeof createRenderer).toEqual('function')
 })

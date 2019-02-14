@@ -102,11 +102,11 @@ const aCount = {
 }
 ```
 
-... can be dispatched with `dispatch(object)` in pipeline functions:
+... can be dispatched with `dispatch(...objects)` in pipeline functions:
 
 ```javascript
 dispatch(aCount)
-dispatch({ type: 'COUNT', value: 3 })
+dispatch({ type: 'COUNT', value: 3 }, { type: 'COUNT', value: 4 }, ...[{}, {}])
 ```
 
 ### HTML

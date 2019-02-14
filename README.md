@@ -12,7 +12,7 @@
 
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
 - **Reactive** - Components will be updated & rerendered automatically by state changes.
-- **Minimal** - 1KiB minimized & gzipped dependency free ESM module.
+- **Minimal** - 1.4 KiB minimized & gzipped dependency free ESM module.
 - **Batteries included** - State management & routing is builtin without any dependencies.
 
 > Spreading pipelines of components to your browser like a concave lense will spread light rays.

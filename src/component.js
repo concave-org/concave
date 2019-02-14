@@ -1,5 +1,7 @@
 import { actions } from './actions'
 
+const template = document.createElement('template')
+
 const createComponent = (renderFn, props = {}) => {
   let prevEl
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/concave-org/concave/compare/v0.11.2...v0.12.0) (2019-02-14)
+
+
+### Features
+
+* **pipeline:** Allow multiple action dispatching. ([38a7e01](https://github.com/concave-org/concave/commit/38a7e01))
+
+
+
 <a name="0.11.2"></a>
 ## [0.11.2](https://github.com/concave-org/concave/compare/v0.11.1...v0.11.2) (2019-02-11)
 

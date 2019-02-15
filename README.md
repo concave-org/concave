@@ -337,6 +337,8 @@ import {
   createRouter,
   createRenderer,
   createPipeline,
+  createComponent,
+  h,
   actions
 } from '@concave/concave'
 
@@ -362,12 +364,21 @@ const appStore = createStore(
     }
 )
 
-const appRouter = createRouter({
-  '/': helloPipe
-})
+const routes = [ 
+ { path: '/', pipe: helloPipe },
+ { fallback: '/' }
+]
+
+const appRouter = createRouter(routes)
 
 const appRender = createRenderer(document.getElementById('app'))
-const corePipe = createPipeline(appStore, appRouter, appRender)
+
+const logger = (action, dispatch) => {
+  console.log(action)
+  return action
+}
+
+const corePipe = createPipeline(logger, appStore, appRouter, appRender)
 const initialState = {
   text: 'Hello World'
 }

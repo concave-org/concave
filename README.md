@@ -85,7 +85,7 @@ Actions are just plain JavaScript objects which flow through your pipelines and 
 All internal and external actions are published and accessible:
 
 ```javascript
-import { actions } from '@concave/cocncave'
+import { actions } from '@concave/concave'
 
 // actions.state
 // actions.routeTo

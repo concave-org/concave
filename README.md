@@ -11,8 +11,8 @@
 ...is a tiny JavaScript library for building web applications (SPAs).
 
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
-- **Reactive** - Components will be updated & rerendered automatically by state changes.
-- **Batteries included** - State management & routing is builtin without any dependencies.
+- **Reactive** - Components will be updated & re-rendered automatically by state changes.
+- **Batteries included** - State management & router are builtin without any dependencies.
 - **Minimal** - 1.4 KiB minimized & gzipped dependency free ESM module.
 
 > Spreading pipelines of components to your browser like a concave lense will spread light rays.
@@ -321,11 +321,11 @@ All components of your defined route pipelines will now be rendered at the DOM n
 To keep the library as simple and small as possible there are the following restrictions:
 
 - Component templates must have exactly one root.
-- No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly rerendered.
+- No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly re-rendered.
 - Browsers have to support promises & async/await.
 - No error handling.
 - Your hoster must be able to redirect path calls (SPA routing).
-- IE11 is not supported
+- IE11 is not supported.
 
 ---
 

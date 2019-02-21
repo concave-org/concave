@@ -197,7 +197,10 @@ const initialState = {
 }
 
 runPipeline(corePipe)(initialState)
+// const dispatch = runPipeline(corePipe)(initialState)
 ```
+
+Optionally `runPipeline(...)` will return the `dispatch` function which will give you access to the applications pipeline.
 
 #### Custom pipeline functions
 

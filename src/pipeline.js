@@ -25,6 +25,7 @@ const runPipeline = pipeline => state => {
     }
   }())
   corePipeline({ type: actions.state, value: state }, dispatch)
+  return dispatch
 }
 
 export {

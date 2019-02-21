@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/concave-org/concave/compare/v0.12.0...v0.13.0) (2019-02-21)
+
+
+### Features
+
+* **pipeline:** Return dispatch function. ([c4fadac](https://github.com/concave-org/concave/commit/c4fadac))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/concave-org/concave/compare/v0.11.2...v0.12.0) (2019-02-14)
 

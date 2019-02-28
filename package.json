@@ -34,7 +34,7 @@
     "rollup": "1.2.2",
     "rollup-plugin-filesize": "6.0.1",
     "standard": "12.0.1",
-    "standard-version": "5.0.0"
+    "standard-version": "5.0.1"
   },
   "standard": {
     "env": [

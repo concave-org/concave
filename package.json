@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/concave-org/concave#readme",
   "devDependencies": {
-    "esm": "3.2.16",
+    "esm": "3.2.17",
     "jest": "24.5.0",
     "rollup": "1.6.0",
     "rollup-plugin-filesize": "6.0.1",

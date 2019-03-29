@@ -36,7 +36,7 @@ const createRouter = initialRoutes => {
     return null
   }
 
-  const changePipeline = (dispatch, state = null) => {
+  const getPipelineChange = (state = {}) => {
     const { pathname, search } = document.location
 
     const fallbackRoute = routes.find(r => r.fallback)
@@ -48,7 +48,7 @@ const createRouter = initialRoutes => {
       if (matchedRoute) {
         currentRoute = pathname
         currentQuery = search
-        dispatch({
+        return {
           type: actions.pipelineChange,
           value: {
             pipe: matchedRoute.pipe,
@@ -58,14 +58,15 @@ const createRouter = initialRoutes => {
             },
             state: state
           }
-        })
+        }
         // only dispatch route change if not already on fallback route
       } else if (fallbackRoute && currentRoute !== fallbackRoute.fallback) {
         currentRoute = fallbackRoute.fallback
         currentQuery = null
-        dispatch({ type: actions.routeTo, value: fallbackRoute.fallback })
+        return { type: actions.routeTo, value: fallbackRoute.fallback }
       }
     }
+    return {}
   }
 
   return (action, dispatch) => {
@@ -75,16 +76,16 @@ const createRouter = initialRoutes => {
 
     switch (action.type) {
       case actions.state:
-        if (!currentRoute) changePipeline(dispatch)
+        if (!currentRoute) dispatch(getPipelineChange())
         break
       case actions.routeNew:
         routes = [ ...routes, ...action.value ]
         break
       case actions.routeTo:
-        changePipeline(dispatch)
+        dispatch(getPipelineChange())
         break
       case actions.routeBack:
-        changePipeline(dispatch, action.value)
+        dispatch(getPipelineChange(action.value))
         break
     }
     return action

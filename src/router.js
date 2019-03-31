@@ -83,6 +83,7 @@ const createRouter = initialRoutes => {
         break
       case actions.routeTo:
         dispatch(getPipelineChange())
+        window.scrollTo(0, 0)
         break
       case actions.routeBack:
         dispatch(getPipelineChange(action.value))

@@ -36,7 +36,7 @@ const createRouter = initialRoutes => {
     return null
   }
 
-  const getPipelineChange = (state = {}) => {
+  const getPipelineChange = (state = null) => {
     const { pathname, search } = document.location
 
     const fallbackRoute = routes.find(r => r.fallback)

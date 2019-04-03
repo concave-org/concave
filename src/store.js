@@ -12,6 +12,7 @@ const createStore = stateReducer => {
         window.history.replaceState(action.value, null, document.location.href)
         break
       case actions.pipelineChange:
+        // needed to reset the state with a routeBack action
         if (action.value.state) state = action.value.state
         state._route = action.value.route
         dispatch({ type: actions.state, value: state })

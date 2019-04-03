@@ -14,21 +14,21 @@ const createRouter = initialRoutes => {
       query[pair[0]] = pair[1]
     }
 
-    const pathRescources = path.match(RESOURCE_REGEX) || []
+    const pathResources = path.match(RESOURCE_REGEX) || []
 
     const preparedRoutes = routes
       .filter(r => r.path)
       .map(r => ({ ...r, resources: r.path.match(RESOURCE_REGEX) || [] }))
-      .filter(r => r.resources.length === pathRescources.length)
+      .filter(r => r.resources.length === pathResources.length)
 
     for (let route of preparedRoutes) {
-      let calcPath = pathRescources
+      let calcPath = pathResources
         .map((pr, idx) => pr === route.resources[idx] ? `${pr}` : route.resources[idx][0] === ':' ? `${route.resources[idx]}` : '')
         .join('/')
       if (`/${calcPath}` === route.path) {
         return {
           ...route,
-          params: route.resources.reduce((acc, cur, idx) => cur !== pathRescources[idx] ? { ...acc, [cur.substring(1)]: pathRescources[idx] } : acc, {}),
+          params: route.resources.reduce((acc, cur, idx) => cur !== pathResources[idx] ? { ...acc, [cur.substring(1)]: pathResources[idx] } : acc, {}),
           query
         }
       }

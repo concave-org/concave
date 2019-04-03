@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/concave-org/concave/compare/v0.13.0...v0.14.0) (2019-04-03)
+
+
+### Bug Fixes
+
+* **router:** default parameter must be null ([79098e2](https://github.com/concave-org/concave/commit/79098e2))
+
+
+### Features
+
+* **router:** scroll to top after route change (close [#14](https://github.com/concave-org/concave/issues/14)) ([c8830d2](https://github.com/concave-org/concave/commit/c8830d2))
+* **router:** support async routes (close [#11](https://github.com/concave-org/concave/issues/11)) ([41930ff](https://github.com/concave-org/concave/commit/41930ff))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://github.com/concave-org/concave/compare/v0.12.0...v0.13.0) (2019-02-21)
 

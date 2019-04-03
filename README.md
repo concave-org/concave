@@ -259,7 +259,11 @@ const routes = [
   },
   {
     path: '/hello',
-    pipe: helloPipe
+    pipe: () => helloPipe
+  },
+  {
+    path:'/async',
+    pipe: () => import('./somePipe.js')
   }
 ]
 
@@ -277,8 +281,8 @@ const routeGoAction = {
 const routeNewAction = {
   type: actions.routeNew,
   value: [
-    { path: '/newroute', pipe: newRoutePipe },
-    { path: '/newer/:route', pipe: newerRoutePipe }
+    { path: '/newroute', pipe: () => newRoutePipe },
+    { path: '/newer/:route', pipe: () => newerRoutePipe }
   ]
 }
 ```
@@ -290,7 +294,7 @@ The route and it's params will be saved on the global state object as `_route`, 
 ```javascript
 
 const routes =[
-  { path: '/test/:name', pipe: testPipe }
+  { path: '/test/:name', pipe: () => testPipe }
 ]
 
 _route: {
@@ -369,7 +373,7 @@ const appStore = createStore(
 )
 
 const routes = [ 
- { path: '/', pipe: helloPipe },
+ { path: '/', pipe: () => helloPipe },
  { fallback: '/' }
 ]
 

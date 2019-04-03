@@ -36,7 +36,7 @@ const createRouter = initialRoutes => {
     return null
   }
 
-  const getPipelineChange = state => {
+  const changePipeline = (dispatch, state) => {
     const { pathname, search } = document.location
 
     const fallbackRoute = routes.find(r => r.fallback)
@@ -48,25 +48,28 @@ const createRouter = initialRoutes => {
       if (matchedRoute) {
         currentRoute = pathname
         currentQuery = search
-        return {
-          type: actions.pipelineChange,
-          value: {
-            pipe: matchedRoute.pipe,
-            route: {
-              params: matchedRoute.params,
-              query: matchedRoute.query
-            },
-            state: state
+
+        Promise.resolve(matchedRoute.pipe()).then(res => dispatch(
+          {
+            type: actions.pipelineChange,
+            value: {
+              pipe: res.default,
+              route: {
+                params: matchedRoute.params,
+                query: matchedRoute.query
+              },
+              state: state
+            }
           }
-        }
+        ))
+
         // only dispatch route change if not already on fallback route
       } else if (fallbackRoute && currentRoute !== fallbackRoute.fallback) {
         currentRoute = fallbackRoute.fallback
         currentQuery = null
-        return { type: actions.routeTo, value: fallbackRoute.fallback }
+        dispatch({ type: actions.routeTo, value: fallbackRoute.fallback })
       }
     }
-    return {}
   }
 
   return (action, dispatch) => {
@@ -76,17 +79,17 @@ const createRouter = initialRoutes => {
 
     switch (action.type) {
       case actions.state:
-        if (!currentRoute) dispatch(getPipelineChange())
+        if (!currentRoute) changePipeline(dispatch)
         break
       case actions.routeNew:
         routes = [ ...routes, ...action.value ]
         break
       case actions.routeTo:
-        dispatch(getPipelineChange())
+        changePipeline(dispatch)
         window.scrollTo(0, 0)
         break
       case actions.routeBack:
-        dispatch(getPipelineChange(action.value))
+        changePipeline(dispatch, action.value)
         break
     }
     return action

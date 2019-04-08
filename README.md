@@ -4,7 +4,6 @@
 
 # Concave
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/concave-org/concave/blob/master/LICENSE)
 [![CircleCI](https://circleci.com/gh/concave-org/concave.svg?style=svg)](https://circleci.com/gh/concave-org/concave)
 [![NPM](https://img.shields.io/npm/v/@concave/concave.svg)](https://www.npmjs.com/package/@concave/concave)
 

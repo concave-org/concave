@@ -8,7 +8,7 @@
 [![Build Status](https://travis-ci.org/concave-org/concave.svg?branch=master)](https://travis-ci.org/concave-org/concave)
 [![NPM](https://img.shields.io/npm/v/@concave/concave.svg)](https://www.npmjs.com/package/@concave/concave)
 
-...is a tiny JavaScript library for building web applications (SPAs).
+...is a tiny JavaScript framework for building web applications (SPAs).
 
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
 - **Reactive** - Components will be updated & re-rendered automatically by state changes.
@@ -32,9 +32,9 @@ The following sponsors help to test, build and maintain this project. Thank you 
 
 [![BrowserStack](logos/browserstack.png)](https://www.browserstack.com)
 
-## Why another library
+## Why another framework
 
-Not everyone needs a library that's bigger as the application code itself. Often I don't need all the features of React, Vue, Angular and so on for a specific app. Every library has it's dark corners where you struggle or need to find a hacky solution. I invented this project to find a solution that's fast enough for most use cases and provide a maintainable art of developing while beeing as small as possible. The story began with `ui = view(state)` and ended with a concave lense for pipelines.
+Not everyone needs a framework that's bigger as the application code itself. Often I don't need all the features of React, Vue, Angular and so on for a specific app. Every library has it's dark corners where you struggle or need to find a hacky solution. I invented this project to find a solution that's fast enough for most use cases and provide a maintainable art of developing while beeing as small as possible. The story began with `ui = view(state)` and ended with a concave lense for pipelines.
 
 ### Use concave
 
@@ -61,8 +61,6 @@ yarn add @concave/concave
 ```
 
 ## Concepts
-
-Concave is implemented in a functional style with vanilla JavaScript.
 
 The main concept consists of a pipeline of functions which will be controlled with actions.
 There are the following predefined factory functions which will return ready to use pipeline functions: `createStore`, `createRouter` & `createRenderer`. These can be used on a pipeline you will create with `createPipeline` and run with `runPipeline`.

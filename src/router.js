@@ -49,8 +49,23 @@ const createRouter = initialRoutes => {
         currentRoute = pathname
         currentQuery = search
 
-        Promise.resolve(matchedRoute.pipe()).then(res => dispatch(
-          {
+        if (typeof matchedRoute.pipe === 'function') {
+          // ES6 --> matchedRoute.pipe
+          dispatch({
+            type: actions.pipelineChange,
+            value: {
+              pipe: matchedRoute.pipe,
+              route: {
+                params: matchedRoute.params,
+                query: matchedRoute.query
+              },
+              state: state
+            }
+          })
+        // } else if (matchedRoute.pipe() instanceof Promise) {
+        } else {
+          // promise --> matchedRoute.pipe()
+          Promise.resolve(matchedRoute.pipe()).then(res => dispatch({
             type: actions.pipelineChange,
             value: {
               pipe: res.default,
@@ -60,8 +75,9 @@ const createRouter = initialRoutes => {
               },
               state: state
             }
-          }
-        ))
+          })
+          )
+        }
 
         // only dispatch route change if not already on fallback route
       } else if (fallbackRoute && currentRoute !== fallbackRoute.fallback) {

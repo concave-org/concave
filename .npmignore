@@ -4,3 +4,6 @@ node_modules
 .github
 .travis.yml
 **/coverage
+.circleci/
+renovate.json
+dist/**/

@@ -123,10 +123,10 @@ const renderFn = (state, props) =>
 
 #### Composition
 
-To create a nested tree you can compose the `h` function:
+To create a nested tree you can compose the `html` function:
 
 ```javascript
-const renderSub = (state, props) => ({ h: h`<p>I'am sub with text: ${state.text}</p>` })
+const renderSub = (state, props) => ({ h: html`<p>I'am sub with text: ${state.text}</p>` })
 
 const renderFn = (state, props) => 
   ({ h: h
@@ -348,7 +348,7 @@ import {
 } from '@concave/concave'
 
 const hello = createComponent((state, props) =>
-  ({ h: h`
+  ({ h: html`
         <div id="${props.componentID}">
           <p id="dynamic">${state.text}</p>
         </div>

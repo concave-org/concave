@@ -49,8 +49,21 @@ const createRouter = initialRoutes => {
         currentRoute = pathname
         currentQuery = search
 
-        if (typeof matchedRoute.pipe === 'function') {
-          // ES6 --> matchedRoute.pipe
+        try {
+          // dynamic import --> will fail for non promise functions
+          matchedRoute.pipe().then(res => dispatch({
+            type: actions.pipelineChange,
+            value: {
+              pipe: res.default,
+              route: {
+                params: matchedRoute.params,
+                query: matchedRoute.query
+              },
+              state: state
+            }
+          }))
+        } catch (error) {
+          // ES6 import
           dispatch({
             type: actions.pipelineChange,
             value: {
@@ -62,21 +75,6 @@ const createRouter = initialRoutes => {
               state: state
             }
           })
-        // } else if (matchedRoute.pipe() instanceof Promise) {
-        } else {
-          // promise --> matchedRoute.pipe()
-          Promise.resolve(matchedRoute.pipe()).then(res => dispatch({
-            type: actions.pipelineChange,
-            value: {
-              pipe: res.default,
-              route: {
-                params: matchedRoute.params,
-                query: matchedRoute.query
-              },
-              state: state
-            }
-          })
-          )
         }
 
         // only dispatch route change if not already on fallback route

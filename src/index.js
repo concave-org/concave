@@ -1,5 +1,5 @@
 import { actions } from './actions'
-import { h } from './html'
+import { html } from './html'
 import { createComponent } from './component'
 import { createPipeline, runPipeline } from './pipeline'
 import { createStore } from './store'
@@ -8,7 +8,7 @@ import { createRenderer } from './render'
 
 export {
   actions,
-  h,
+  html,
   createComponent,
   createPipeline,
   runPipeline,

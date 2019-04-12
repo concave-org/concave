@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/concave-org/concave/compare/v0.14.2...v1.0.0) (2019-04-12)
+
+
+### Bug Fixes
+
+* rename import ([c1bfd56](https://github.com/concave-org/concave/commit/c1bfd56))
+
+
+### Features
+
+* **html:** change exported function name to html ([2e8e9c5](https://github.com/concave-org/concave/commit/2e8e9c5))
+
+
+### BREAKING CHANGES
+
+* **html:** renamed h`...`to html`...`
+
+
+
 <a name="0.14.2"></a>
 ## [0.14.2](https://github.com/concave-org/concave/compare/v0.14.1...v0.14.2) (2019-04-12)
 

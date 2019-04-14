@@ -108,11 +108,11 @@ dispatch({ type: 'COUNT', value: 3 }, { type: 'COUNT', value: 4 }, ...[{}, {}])
 
 ### HTML
 
-To render a component in the DOM you can define a render function with the shape `(state, props) => { h: h(template), attrs: {...} }`:
+To render a component in the DOM you can define a render function with the shape `(state, props) => { h: html(template), attrs: {...} }`:
 
 ```javascript
 const renderFn = (state, props) =>
-  ({ h: h
+  ({ h: html
         `<div id="${props.componentID}">
            <p>${state.text}</p>
            <input id="${props.inputID}"/>
@@ -128,8 +128,8 @@ To create a nested tree you can compose the `html` function:
 ```javascript
 const renderSub = (state, props) => ({ h: html`<p>I'am sub with text: ${state.text}</p>` })
 
-const renderFn = (state, props) => 
-  ({ h: h
+const renderFn = (state, props) =>
+  ({ h: html
       `<div id="${props.componentID}">
          <p>${state.text}</p>
          ${renderSub(state, {})}

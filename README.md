@@ -19,7 +19,6 @@
 ## Links
 
 - [Changelog](CHANGELOG.md)
-- [Examples](https://github.com/concave-org/examples)
 - [Documentation](#Documentation)
 - [Codepen](https://codepen.io/matsp/pen/LqgJWy)
 

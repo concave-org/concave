@@ -9,7 +9,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * **component:** only allow attrs passed via render function ([ab7dfba](https://github.com/concave-org/concave/commit/ab7dfba))
-* **render:** introduce render options e.g. to disable re-rendering (close [#36](https://github.com/concave-org/concave/issues/36)) ([185eba5](https://github.com/concave-org/concave/commit/185eba5))
 
 
 ### BREAKING CHANGES

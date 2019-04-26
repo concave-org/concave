@@ -8,7 +8,9 @@ const createComponent = (renderFn, props = {}) => {
   return (action, dispatch) => {
     switch (action.type) {
       case actions.state:
-        let { h, attrs } = renderFn(action.value, props)
+        let { h, attrs, options = {} } = renderFn(action.value, props)
+        let { rerender = true } = options
+        if (!rerender && prevEl) break
         template.innerHTML = h
         let el = template.content.firstChild
         let renderAction = !prevEl ? actions.appendComponent : !prevEl.isEqualNode(el) ? actions.replaceComponent : null

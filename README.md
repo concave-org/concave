@@ -107,7 +107,7 @@ dispatch({ type: 'COUNT', value: 3 }, { type: 'COUNT', value: 4 }, ...[{}, {}])
 
 ### HTML
 
-To render a component in the DOM you can define a render function with the shape `(state, props) => { h: html(template), attrs: {...} }`:
+To render a component in the DOM you can define a render function with the shape `(state, props) => { h: html(template), attrs: {...}, options: {...} }`:
 
 ```javascript
 const renderFn = (state, props) =>
@@ -118,6 +118,16 @@ const renderFn = (state, props) =>
          </div>
         `
   })
+```
+
+#### Options
+
+You can pass the following options to modify the render behavior:
+
+```javascript
+const options = {
+  rerender: false // will disable rerendering completly after intial rendering
+}
 ```
 
 #### Composition

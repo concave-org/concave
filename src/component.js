@@ -15,7 +15,6 @@ const createComponent = (renderFn, props = {}) => {
         if (renderAction) {
           let toDispatch = []
           toDispatch.push({ type: renderAction, value: { el, prevEl } })
-          if (props._attrs) toDispatch.push({ type: actions.setAttributes, value: props._attrs })
           if (attrs) toDispatch.push({ type: actions.setAttributes, value: attrs })
           dispatch(...toDispatch)
         }

@@ -111,14 +111,25 @@ To render a component in the DOM you can define a render function with the shape
 
 ```javascript
 const renderFn = (state, props) =>
-  ({ h: html
-        `<div id="${props.componentID}">
+  ({
+    h: html
+        `<div id="example">
            <p>${state.text}</p>
            <input id="${props.inputID}"/>
          </div>
-        `
+        `,
+    attrs: {
+      example: {
+        onchange: event => ({ type: 'INPUT', value: event.target.value }),
+        onclick: () => console.log('clicked'),
+        style: 'margin-left: 10px;'
+      }
+    }
   })
 ```
+
+If your passed function returns an object, concave will dispatch it as action on the pipeline - every other type will be set as attribute value.
+To actually use the action to modify the state you have to implement a state reducer - see [Store](#Store).
 
 #### Composition
 
@@ -146,27 +157,6 @@ const component = createComponent(renderFn, { componentID: 'hello-world' })
 ```
 
 Components are first class citizens on pipelines. They will be automatically rendered on state or route changes.
-
-#### HTML events
-
-To be able to react on HTML events e.g. click you have to pass a special property `_attrs` in your props.
-If your passed function returns an object, concave will dispatch it as action on the pipeline - every other type will be set as attribute value:
-
-```javascript
-const props = {
-  componentID: 'hello-world',
-  inputID: 'input',
-  _attrs: {
-    input: {
-      onchange: event => ({ type: 'INPUT', value: event.target.value }),
-      onclick: () => console.log('clicked'),
-      style: 'margin-left: 10px;'
-    }
-  }
-}
-```
-
-To use the action to modify the state you have to implement a state reducer - see [Store](#Store).
 
 ### Pipeline
 

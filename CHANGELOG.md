@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/concave-org/concave/compare/v1.1.0...v1.2.0) (2019-04-29)
+
+
+### Features
+
+* **component:** allow templates with multiple roots ([5ffe1ab](https://github.com/concave-org/concave/commit/5ffe1ab))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/concave-org/concave/compare/v1.0.3...v1.1.0) (2019-04-26)
 

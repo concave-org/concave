@@ -312,18 +312,9 @@ All components of your defined route pipelines will now be rendered at the DOM n
 <div id="app"></div>
 ```
 
-## Restrictions
+## Browser support
 
-To keep the library as simple and small as possible there are the following restrictions:
-
-- Component templates must have exactly one root.
-- No DOM diffing or intelligent algorithm are used in favor of code size - your components will be completly re-rendered.
-- Browsers have to support promises & async/await.
-- No error handling.
-- Your hoster must be able to redirect path calls (SPA routing).
-- IE11 is not supported.
-
----
+All modern browsers are supported - dinosaur IE11 not!
 
 ## Example
 
@@ -341,9 +332,9 @@ import {
 
 const hello = createComponent((state, props) =>
   ({ h: html`
-        <div id="${props.componentID}">
+        <section id="${props.componentID}">
           <p id="dynamic">${state.text}</p>
-        </div>
+        </section>
         `,
      attrs: { dynamic: { onclick: event => console.log(event) }}
   }),

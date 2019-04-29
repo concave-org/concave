@@ -10,7 +10,7 @@ const createComponent = (renderFn, props = {}) => {
       case actions.state:
         let { h, attrs } = renderFn(action.value, props)
         template.innerHTML = h
-        let el = template.content.firstChild
+        let el = template.content.cloneNode(true)
         let renderAction = !prevEl ? actions.appendComponent : !prevEl.isEqualNode(el) ? actions.replaceComponent : null
         if (renderAction) {
           let toDispatch = []

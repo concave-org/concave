@@ -10,7 +10,7 @@ const createComponent = (renderFn, props = {}) => {
       case actions.state:
         let { h, attrs } = renderFn(action.value, props)
         template.innerHTML = h
-        let node = template.content.cloneNode(true)
+        let node = template.content.firstChild
         let renderAction = !oldNode
           ? actions.appendComponent
           : !oldNode.isEqualNode(node)
@@ -21,7 +21,7 @@ const createComponent = (renderFn, props = {}) => {
           toDispatch.push({ type: renderAction, value: { node, oldNode } })
           if (attrs) toDispatch.push({ type: actions.setAttributes, value: attrs })
           dispatch(...toDispatch)
-          oldNode = template.content.cloneNode(true)
+          oldNode = node
         }
         break
       case actions.pipelineChange:

@@ -158,6 +158,8 @@ const component = createComponent(renderFn, { componentID: 'hello-world' })
 
 Components are first class citizens on pipelines. They will be automatically rendered on state or route changes.
 
+**Note**: Components must have exactly one root element returned by the render function!
+
 ### Pipeline
 
 The pipeline is the heart of concave. Through pipeline functions actions will flow to manage the state, routing and rendering. To create a pipeline you have to use the factory function `createPipeline(...pipelineFns)`:

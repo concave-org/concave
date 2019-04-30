@@ -254,7 +254,7 @@ const routes = [
   },
   {
     path:'/async',
-    pipe: () => import('./somePipe.js')
+    pipe: () => import('./somePipe.js') // e.g. code splitting with webpack/rollup dynamic import
   }
 ]
 

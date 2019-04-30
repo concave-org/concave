@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/concave-org/concave/compare/v1.2.0...v1.2.1) (2019-04-30)
+
+
+### Bug Fixes
+
+* comparison of old and new node when using fragments ([54afdb8](https://github.com/concave-org/concave/commit/54afdb8))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/concave-org/concave/compare/v1.1.0...v1.2.0) (2019-04-29)
 

@@ -4,12 +4,12 @@ const createRenderer = parent => {
   return (action, dispatch) => {
     switch (action.type) {
       case actions.appendComponent:
-        parent.appendChild(action.value.el)
+        parent.appendChild(action.value.node)
         break
       case actions.replaceComponent:
         // get actual focused element
         let { id, selectionStart, selectionEnd } = document.activeElement
-        parent.replaceChild(action.value.el, action.value.prevEl)
+        parent.replaceChild(action.value.node, action.value.oldNode)
         // set focus on elements with value prop
         if (id) {
           let el = document.getElementById(id)

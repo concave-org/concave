@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.6"></a>
+## [1.2.6](https://github.com/concave-org/concave/compare/v1.2.5...v1.2.6) (2019-05-02)
+
+
+### Bug Fixes
+
+* **store:** only deep copy state for dispatching ([2869b89](https://github.com/concave-org/concave/commit/2869b89))
+
+
+
 <a name="1.2.5"></a>
 ## [1.2.5](https://github.com/concave-org/concave/compare/v1.2.4...v1.2.5) (2019-04-30)
 

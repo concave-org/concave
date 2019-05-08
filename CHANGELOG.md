@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/concave-org/concave/compare/v1.2.6...v1.3.0) (2019-05-08)
+
+
+### Features
+
+* **router:** improved dynamic import code ([8a35be7](https://github.com/concave-org/concave/commit/8a35be7))
+
+
+### BREAKING CHANGES
+
+* **router:** pipelines must be exported by using default export and imported with the whole namespace --> import * as pipeline from '...'
+
+
+
 <a name="1.2.6"></a>
 ## [1.2.6](https://github.com/concave-org/concave/compare/v1.2.5...v1.2.6) (2019-05-02)
 

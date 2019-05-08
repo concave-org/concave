@@ -36,7 +36,7 @@ const createRouter = initialRoutes => {
     return null
   }
 
-  const changePipeline = (dispatch, state) => {
+  const changePipeline = async (dispatch, state) => {
     const { pathname, search } = document.location
 
     const fallbackRoute = routes.find(r => r.fallback)
@@ -49,33 +49,19 @@ const createRouter = initialRoutes => {
         currentRoute = pathname
         currentQuery = search
 
-        try {
-          // dynamic import --> will fail for non promise functions
-          matchedRoute.pipe().then(res => dispatch({
-            type: actions.pipelineChange,
-            value: {
-              pipe: res.default,
-              route: {
-                params: matchedRoute.params,
-                query: matchedRoute.query
-              },
-              state: state
-            }
-          }))
-        } catch (error) {
-          // ES6 import
-          dispatch({
-            type: actions.pipelineChange,
-            value: {
-              pipe: matchedRoute.pipe,
-              route: {
-                params: matchedRoute.params,
-                query: matchedRoute.query
-              },
-              state: state
-            }
-          })
-        }
+        let _module = await matchedRoute.pipe
+
+        dispatch({
+          type: actions.pipelineChange,
+          value: {
+            pipe: _module.default,
+            route: {
+              params: matchedRoute.params,
+              query: matchedRoute.query
+            },
+            state: state
+          }
+        })
 
         // only dispatch route change if not already on fallback route
       } else if (fallbackRoute && currentRoute !== fallbackRoute.fallback) {

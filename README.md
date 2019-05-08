@@ -37,7 +37,7 @@ Not everyone needs a framework that's bigger as the application code itself. Oft
 ### Use concave
 
 - Small to medium sized applications
-- Bootstraping web applications
+- Bootstraping web applications / pages
 - Progressive Web App (PWA)
 
 ### Don't use concave
@@ -73,6 +73,14 @@ These simple concepts result in:
 - Single source of truth store >> only a state reducer can modify the state
 
 ## Documentation
+
+- [Actions](#Actions)
+- [HTML](#HTML)
+- [Component](#Component)
+- [Pipeline](#Pipeline)
+- [Store](#Store)
+- [Router](#Router)
+- [Render](#Render)
 
 ### Actions
 
@@ -168,7 +176,7 @@ The pipeline is the heart of concave. Through pipeline functions actions will fl
 const helloPipe = createPipeline(component)
 ```
 
-For each route of your SPA you have create such a component pipeline that will be used after a route change. Please see the [Router](#Router) section to know how to define routes with component pipelines.
+For each route of your SPA you have to create such a component pipeline that will be used after a route change. Please see the [Router](#Router) section to know how to define routes with component pipelines.
 
 For managing the core of your app you have to define at least one base or core pipeline:
 
@@ -319,61 +327,3 @@ All components of your defined route pipelines will now be rendered at the DOM n
 ## Browser support
 
 All modern browsers are supported - dinosaur IE11 not!
-
-## Example
-
-```javascript
-import {
-  runPipeline,
-  createStore,
-  createRouter,
-  createRenderer,
-  createPipeline,
-  createComponent,
-  h,
-  actions
-} from '@concave/concave'
-
-const hello = createComponent((state, props) =>
-  ({ h: html`
-        <section id="${props.componentID}">
-          <p id="dynamic">${state.text}</p>
-        </section>
-        `,
-     attrs: { dynamic: { onclick: event => console.log(event) }}
-  }),
-  { componentID: 'hello-world' }
-)
-
-const helloPipe = createPipeline(hello)
-
-const appStore = createStore(
-    (state, action, dispatch) => {
-      switch (action.type) {
-        // ...dispatch state here with new state
-      }
-      return action
-    }
-)
-
-const routes = [ 
- { path: '/', pipe: () => helloPipe },
- { fallback: '/' }
-]
-
-const appRouter = createRouter(routes)
-
-const appRender = createRenderer(document.getElementById('app'))
-
-const logger = (action, dispatch) => {
-  console.log(action)
-  return action
-}
-
-const corePipe = createPipeline(logger, appStore, appRouter, appRender)
-const initialState = {
-  text: 'Hello World'
-}
-
-runPipeline(corePipe)(initialState)
-```

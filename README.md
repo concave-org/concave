@@ -20,7 +20,7 @@
 
 - [Changelog](CHANGELOG.md)
 - [Documentation](#Documentation)
-- [Codepen](https://codepen.io/matsp/pen/LqgJWy)
+- [CodeSandbox](https://codesandbox.io/s/30nj82xzrm?fontsize=14)
 
 ## Sponsors
 

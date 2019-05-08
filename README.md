@@ -20,7 +20,7 @@
 
 - [Changelog](CHANGELOG.md)
 - [Documentation](#Documentation)
-- [CodeSandbox](https://codesandbox.io/s/7wjonxn6px?fontsize=14)
+- [CodeSandbox](https://codesandbox.io/s/github/concave-org/codesandbox-hello-world)
 
 ## Sponsors
 

@@ -52,7 +52,7 @@ const createRouter = initialRoutes => {
         currentRoute = pathname
         currentQuery = search
 
-        let _module = await matchedRoute.pipe
+        let _module = await matchedRoute.pipe()
 
         dispatch({
           type: actions.pipelineChange,

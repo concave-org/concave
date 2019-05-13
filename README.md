@@ -252,7 +252,8 @@ const appStore = createStore(
 The builtin router is using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) for saving the actual state of a route in the browser. To create a router you have to use `createRoute(routes)`:
 
 ```javascript
-import * as helloPipe from './myHelloPipeline.js'
+import * as hello from './myHelloPipeline.js'
+const helloPipe = () => hello
 
 const routes = [
   {
@@ -264,7 +265,7 @@ const routes = [
   },
   {
     path:'/async',
-    pipe: import('./somePipe.js') // e.g. code splitting with webpack/rollup dynamic import
+    pipe: () => import('./somePipe.js') // e.g. code splitting with webpack/rollup dynamic import
   }
 ]
 

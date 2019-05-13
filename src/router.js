@@ -23,7 +23,10 @@ const createRouter = initialRoutes => {
 
     for (let route of preparedRoutes) {
       let calcPath = pathResources
-        .map((pr, idx) => pr === route.resources[idx] ? `${pr}` : route.resources[idx][0] === ':' ? `${route.resources[idx]}` : '')
+        .map((pr, idx) =>
+          pr === route.resources[idx] ? `${pr}`
+            : route.resources[idx][0] === ':' ? `${route.resources[idx]}`
+              : '')
         .join('/')
       if (`/${calcPath}` === route.path) {
         return {

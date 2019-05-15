@@ -7,7 +7,7 @@
 [![CircleCI](https://circleci.com/gh/concave-org/concave.svg?style=svg)](https://circleci.com/gh/concave-org/concave)
 [![NPM](https://img.shields.io/npm/v/@concave/concave.svg)](https://www.npmjs.com/package/@concave/concave)
 
-...is a tiny JavaScript framework for building web applications (SPAs).
+...is a tiny JavaScript framework for building "Single Page Applications" (SPAs).
 
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
 - **Reactive** - Components will be updated & re-rendered automatically by state changes.
@@ -37,7 +37,7 @@ Not everyone needs a framework that's bigger as the application code itself. Oft
 ### Use concave
 
 - Small to medium sized applications
-- Bootstraping web applications / pages
+- Bootstraping web applications (preload real app in the background)
 - Progressive Web App (PWA)
 
 ### Don't use concave

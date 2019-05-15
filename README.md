@@ -9,10 +9,10 @@
 
 ...is a tiny JavaScript framework for building "Single Page Applications" (SPAs).
 
-- **Declarative** - Components are powered by a ES6 template tag function to easily define templates.
-- **Reactive** - Components will be updated & re-rendered automatically by state changes.
-- **Batteries included** - State management & router are builtin without any dependencies.
-- **Minimal** - < 1.5 KiB minimized & gzipped dependency free ESM module.
+- **Declarative** - Components are powered by a ES6 template tag function to easily define templates
+- **Reactive** - Components will be updated & re-rendered automatically by state changes
+- **Batteries included** - State management & router are builtin without any dependencies
+- **Minimal** - < 1.5 KiB minimized & gzipped dependency free ESM module
 
 > Spreading pipelines of components to your browser like a concave lense will spread light rays.
 
@@ -58,15 +58,24 @@ npm i @concave/concave
 yarn add @concave/concave
 ```
 
-## Concepts
+## Concept
 
-The main concept consists of a pipeline of functions which will be controlled with actions.
-There are the following predefined factory functions which will return ready to use pipeline functions: `createStore`, `createRouter` & `createRenderer`. These can be used on a pipeline you will create with `createPipeline` and run with `runPipeline`.
-Components are also just functions and will be created with `createComponent`.
+The main concept consists of a pipeline of functions which will be controlled with actions (plain JavaScript objects). If you are familiar with functional programming concepts, then you will recognize that a pipeline in concave is mostly the same as the result of a `pipe` function in FP.
 
-Through all of these functions actions will be passed to control your application. E.g. the `state` action - when a component receive this action, it will check if it need to update itself and will trigger a render action on the pipeline if neccessary.
+There are the following predefined factory functions which will return ready to use pipeline functions:
 
-These simple concepts result in:
+- `createStore` >> creates a store pipeline function
+- `createRouter` >> creates a router pipeline function
+- `createRenderer` >> creates a renderer pipeline function
+- `createComponent` >> creates a component pipeline function
+
+They will be composed with `createPipeline` which returns a pipeline of functions. You can also compose pipelines with `createPipeline` if you want. This could be interesting if you want to compose different parts of your application.
+
+With `runPipeline` you start your pipeline and the first action (state) will flow through the functions.
+
+Through all of these composed functions, actions will be passed to control your application. E.g. the `state` action - when a component receive this action, it will check if it need to update itself and will trigger a render action on the pipeline if neccessary.
+
+This simple concept results in:
 
 - Unidirectional action flow >> time traveling & easy debugging
 - Pure components >> predictive rendering results

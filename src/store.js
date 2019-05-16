@@ -21,6 +21,8 @@ const createStore = stateReducer => {
         state = initialState
         window.history.pushState(state, null, document.location.origin + action.value)
         break
+      case actions.rerender:
+        dispatch({ type: actions.state, value: JSON.parse(JSON.stringify(state)) })
     }
     stateReducer(JSON.parse(JSON.stringify(state)), action, dispatch)
     return action

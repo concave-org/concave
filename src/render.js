@@ -5,6 +5,8 @@ const createRenderer = parent => {
     switch (action.type) {
       case actions.appendComponent:
         parent.appendChild(action.value.node)
+        // notify component
+        dispatch({ type: actions.mounted, value: action.value.node })
         break
       case actions.replaceComponent:
         // get actual focused element

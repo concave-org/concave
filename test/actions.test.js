@@ -14,4 +14,6 @@ test('actions are strings', () => {
   expect(typeof actions.appendComponent).toEqual('string')
   expect(typeof actions.replaceComponent).toEqual('string')
   expect(typeof actions.setAttributes).toEqual('string')
+  expect(typeof actions.mounted).toEqual('string')
+  expect(typeof actions.rerender).toEqual('string')
 })

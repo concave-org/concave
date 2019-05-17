@@ -32,7 +32,7 @@ const createRenderer = parent => {
               let event = attr.startsWith('on') ? attr.substring(2) : null
               if (event && typeof action.value[id][attr] === 'function') {
                 el.addEventListener(event, event => {
-                  let result = action.value[id][attr](event)
+                  let result = action.value[id][attr](event, dispatch)
                   if (typeof result === 'object') dispatch(result)
                 }, { passive: true })
               } else el.setAttribute(attr, action.value[id][attr])

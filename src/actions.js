@@ -6,7 +6,9 @@ const actions = {
   pipelineChange: 'pipelineChange',
   appendComponent: 'appendComponent',
   replaceComponent: 'replaceComponent',
-  setAttributes: 'setAttributes'
+  setAttributes: 'setAttributes',
+  mounted: 'mounted',
+  rerender: 'rerender'
 }
 
 export {

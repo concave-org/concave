@@ -2,7 +2,7 @@ import { actions } from './actions'
 
 const template = document.createElement('template')
 
-const createComponent = (renderFn, props = {}) => {
+const createComponent = (renderFn, props = {}, hooks = {}) => {
   let oldNode
 
   return (action, dispatch) => {
@@ -26,6 +26,9 @@ const createComponent = (renderFn, props = {}) => {
         break
       case actions.pipelineChange:
         oldNode = null
+        break
+      case actions.mounted:
+        if (hooks.mounted && oldNode.isEqualNode(action.value)) hooks.mounted(dispatch)
         break
     }
     return action

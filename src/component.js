@@ -28,7 +28,7 @@ const createComponent = (renderFn, props = {}, hooks = {}) => {
         oldNode = null
         break
       case actions.mounted:
-        if (hooks.mounted && oldNode.isEqualNode(action.value)) hooks.mounted(dispatch)
+        if (hooks.mounted && oldNode === action.value) hooks.mounted(dispatch)
         break
     }
     return action

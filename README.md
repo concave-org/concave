@@ -12,7 +12,7 @@
 - **Declarative** - Components are powered by a ES6 template tag function to easily define templates
 - **Reactive** - Components will be updated & re-rendered automatically by state changes
 - **Batteries included** - State management & router are builtin without any dependencies
-- **Minimal** - < 1.5 KiB minimized & gzipped dependency free ESM module
+- **Minimal** - ~1.5 KiB minimized & gzipped dependency free ESM module
 
 > Spreading pipelines of components to your browser like a concave lense will spread light rays.
 
@@ -167,15 +167,19 @@ const renderFn = (state, props) =>
 
 ### Component
 
-To finally create a component you pass the defined render function to `createComponent(renderFn, props)`:
+To finally create a component you pass the defined render function to `createComponent(renderFn, props, hooks)`:
 
 ```javascript
-const component = createComponent(renderFn, { componentID: 'hello-world' })
+const component = createComponent(renderFn, { componentID: 'hello-world' }, { mounted: () => {}})
 ```
 
 Components are first class citizens on pipelines. They will be automatically rendered on state or route changes.
 
 **Note**: Components must have exactly one root element returned by the render function!
+
+#### Lifecycle hooks
+
+If you pass the lifecycle function `mounted` in an object to `createComponent(...)`, this function will be called when the component is inserted in the DOM. You can use it e.g. to fetch data asynchronously and display a loading spinner in the meantime.
 
 ### Pipeline
 

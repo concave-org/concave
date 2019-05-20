@@ -170,7 +170,11 @@ const renderFn = (state, props) =>
 To finally create a component you pass the defined render function to `createComponent(renderFn, props, hooks)`:
 
 ```javascript
-const component = createComponent(renderFn, { componentID: 'hello-world' }, { mounted: () => {}})
+const component = createComponent(
+  renderFn,
+  { componentID: 'hello-world' },
+  { mounted: dispatch => {}}
+)
 ```
 
 Components are first class citizens on pipelines. They will be automatically rendered on state or route changes.
@@ -179,7 +183,15 @@ Components are first class citizens on pipelines. They will be automatically ren
 
 #### Lifecycle hooks
 
-If you pass the lifecycle function `mounted` in an object to `createComponent(...)`, this function will be called when the component is inserted in the DOM. You can use it e.g. to fetch data asynchronously and display a loading spinner in the meantime.
+If you pass the lifecycle function `mounted(dispatch)` in an object to `createComponent(...)`, this function will be called when the component is inserted in the DOM. You can use it e.g. to fetch data asynchronously and display a loading spinner in the meantime.
+
+```javascript
+const hooks = {
+  mounted: dispatch => {
+    dispatch({type: 'GET_DATA'})
+  }
+}
+```
 
 ### Pipeline
 

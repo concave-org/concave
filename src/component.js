@@ -2,7 +2,7 @@ import { actions } from './actions'
 
 const template = document.createElement('template')
 
-const createComponent = (renderFn, props = {}, hooks = {}) => {
+const createComponent = (renderFn, props = {}, hooks = {}, actionReducer) => {
   let oldNode
 
   return (action, dispatch) => {
@@ -31,6 +31,7 @@ const createComponent = (renderFn, props = {}, hooks = {}) => {
         if (hooks.mounted && oldNode === action.value) hooks.mounted(dispatch)
         break
     }
+    if (actionReducer) actionReducer(action, dispatch)
     return action
   }
 }

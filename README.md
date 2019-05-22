@@ -379,6 +379,11 @@ All components of your defined route pipelines will now be rendered at the DOM n
 <div id="app"></div>
 ```
 
+#### Rerendering
+
+Reactivity in concave normally relies on state changes but you can force a rerendering evaluation by dispatching the `rerender` action that is exposed by `actions`.
+If your component's render function e.g. uses local state of the props, concave will not automatically rerender changes if a property changes. You have to manually dispatch the `rerender` action after changing the property which will lead to a different HTML output.
+
 ## Browser support
 
 All modern browsers are supported - dinosaur IE11 not!

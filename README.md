@@ -186,11 +186,16 @@ Components are first class citizens on pipelines. They will be automatically ren
 If you pass the lifecycle function `mounted(dispatch)` in an object to `createComponent(...)`, this function will be called when the component is inserted in the DOM. You can use it e.g. to fetch data asynchronously and display a loading spinner in the meantime.
 
 ```javascript
+const renderFn = () => {...}
+const props = {...}
+
 const hooks = {
   mounted: dispatch => {
     dispatch({type: 'GET_DATA'})
   }
 }
+
+const component = createComponent(renderFn, props, hooks)
 ```
 
 ### Pipeline

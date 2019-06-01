@@ -329,7 +329,7 @@ const appRouter = createRouter(routes)
 To actually change a route from your application you have to dispatch the action `routeTo` with the path of the new route as value. If you want to define a new route at runtime you have to dispatch the action `routeNew` with an array of objects with the new routes:
 
 ```javascript
-const routeGoAction = {
+const routeToAction = {
   type: actions.routeTo,
   value: '/home'
 }

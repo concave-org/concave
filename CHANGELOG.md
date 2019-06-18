@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.4](https://github.com/concave-org/concave/compare/v1.6.3...v1.6.4) (2019-06-18)
+
+
+### Bug Fixes
+
+* **router:** return action anyway ([e08a7c4](https://github.com/concave-org/concave/commit/e08a7c4))
+
+
+
 ### [1.6.3](https://github.com/concave-org/concave/compare/v1.6.2...v1.6.3) (2019-06-18)
 
 

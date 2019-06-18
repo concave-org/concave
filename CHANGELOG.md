@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3](https://github.com/concave-org/concave/compare/v1.6.2...v1.6.3) (2019-06-18)
+
+
+### Bug Fixes
+
+* **router:** stop action propagation on first 'state' action ([b20697c](https://github.com/concave-org/concave/commit/b20697c))
+
+
+
 ### [1.6.2](https://github.com/concave-org/concave/compare/v1.6.1...v1.6.2) (2019-06-18)
 
 

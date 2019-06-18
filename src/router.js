@@ -30,7 +30,7 @@ const createRouter = initialRoutes => {
         .join('/')
       if (`/${calcPath}` === route.path) {
         return {
-          path: route.path,
+          ...route,
           params: route.resources.reduce((acc, cur, idx) => cur !== pathResources[idx] ? { ...acc, [cur.substring(1)]: pathResources[idx] } : acc, {}),
           query
         }
@@ -59,6 +59,7 @@ const createRouter = initialRoutes => {
           value: {
             pipe: _module.default,
             route: {
+              path: matchedRoute.path,
               params: matchedRoute.params,
               query: matchedRoute.query
             },

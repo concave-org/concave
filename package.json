@@ -32,7 +32,7 @@
     "esm": "3.2.25",
     "jest": "24.8.0",
     "rollup": "1.15.6",
-    "rollup-plugin-filesize": "6.1.0",
+    "rollup-plugin-filesize": "6.1.1",
     "standard": "12.0.1",
     "standard-version": "6.0.1"
   },

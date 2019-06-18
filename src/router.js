@@ -96,7 +96,8 @@ const createRouter = initialRoutes => {
         changePipeline(dispatch, action.value)
         break
     }
-    if (currentRoute) return action
+
+    return action
   }
 }
 

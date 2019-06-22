@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/concave-org/concave/compare/v1.6.4...v1.7.0) (2019-06-22)
+
+
+### Features
+
+* **component:** add disconnect hook ([597cf5a](https://github.com/concave-org/concave/commit/597cf5a))
+
+
+
 ### [1.6.4](https://github.com/concave-org/concave/compare/v1.6.3...v1.6.4) (2019-06-18)
 
 

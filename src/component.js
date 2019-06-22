@@ -25,6 +25,7 @@ const createComponent = (renderFn, props = {}, hooks = {}, actionReducer) => {
         }
         break
       case actions.pipelineChange:
+        if (oldNode && hooks.disconnected) hooks.disconnected(dispatch)
         oldNode = null
         break
       case actions.mounted:

@@ -184,7 +184,13 @@ Components are first class citizens on pipelines. They will be automatically ren
 
 #### Lifecycle hooks
 
-If you pass the lifecycle function `mounted(dispatch)` in an object to `createComponent(...)`, this function will be called when the component is inserted in the DOM. You can use it e.g. to fetch data asynchronously and display a loading spinner in the meantime.
+If you pass the lifecycle function in an object to `createComponent(...)`, this function will be called when the component is inserted in the DOM. You can use it e.g. to fetch data asynchronously and display a loading spinner in the meantime.
+
+**Hooks**:
+|hook|parameter|desc|
+|----|--------|----|
+|mounted|dispatch|called when component is mounted in the DOM|
+|disconnected|dispatch|called when component is removed from the DOM|
 
 ```javascript
 const renderFn = () => {...}
@@ -193,7 +199,8 @@ const props = {...}
 const hooks = {
   mounted: dispatch => {
     dispatch({type: 'GET_DATA'})
-  }
+  },
+  disconnected: dispatch => {...}
 }
 
 const component = createComponent(renderFn, props, hooks)

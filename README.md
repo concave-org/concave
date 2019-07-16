@@ -297,8 +297,8 @@ const appStore = createStore(
       switch (action.type) {
         // state reducer
         case 'COUNT':
-          dispatch({ 
-            type: actions.state, 
+          dispatch({
+            type: actions.state,
             value: { ...state, counter: state.counter + 1 }
           })
           break
